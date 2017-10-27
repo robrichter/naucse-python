@@ -309,7 +309,10 @@ Druhý `await` pro stejné zavolání asynchronní funkce skončí s chybou.
 Zkuste si to – v kódu výše přidejte daší řádek s `await coroutine`:
 
 ```python
+async def demo():
+    coroutine = asyncio.ensure_future(add(2, 3))
     print('The result is:', (await coroutine))
+    print('The result is:', (await coroutine))  # OK!
 ```
 
 Tenhle problém můžeme vyřešit tak, že asynchronní funkci „zabalíme“
@@ -416,80 +419,6 @@ async with database.transaction_context():
 ```
 
 
-A další
--------
-
-Nakonec několik tipů, o kterých je dobré vědět.
-
-V `asyncio` najdeme synchronizační mechanismy známé z vláknového programování, např.
-`Lock` a `Semaphore` – viz [dokumentace](https://docs.python.org/3/library/asyncio-sync.html).
-
-Musíme-li použít blokující funkci, která např. komunikuje po síti bez `await` a která by
-tedy zablokovala i všechny ostatní úlohy, můžeme použít
-`loop.run_in_executor()`, a tím danou funkci zavolat ve vlákně nebo podprocesu, ale výsledek zpřístupnit
-jako objekt, na který lze počkat pomocí `await`.
-Použití je opět popsáno v [dokumentaci](https://docs.python.org/3/library/asyncio-eventloop.html#executor).
-
-Občas vás při programování s `asyncio` zaskočí zrádná chyba.
-V takových případech je dobré zapnout *debug* režim pomocí proměnné prostředí `PYTHONASYNCIODEBUG=1`.
-V tomto režimu `asyncio` upozorňuje na časté chyby, do některých chybových výpisů přidává informaci o tom,
-kde aktuální `Task` vznikl, apod.
-Více informací je zase v [dokumentaci](https://docs.python.org/3/library/asyncio-dev.html#asyncio-dev).
-
-
-Alternativní smyčky událostí
-----------------------------
-
-Jak bylo zmíněno na začátku, hlavní cíl `asyncio` je definovat společné rozhraní
-pro různé asynchronní knihovny, aby bylo možné např. kombinovat knihovny pro
-Tornado se smyčkou událostí v Twisted.
-Samotné `asyncio` je jen jedna z mnoha implementací tohoto rozhraní.
-Zajímavá je například knihovna [uvloop], která je asi 2-4× rychlejší než `asyncio`
-(ale má závislosti, které se pro součást standardní knihovny nehodí).
-
-Další zajímavá implementace je [asyncqt], která pod standardním `asyncio` API používá
-smyčku událostí z Qt.
-Umožňuje tak efektivně zpracovávat Qt události zároveň s asynchronními funkcemi
-známými z `asyncio`.
-
-*Event loop* z `asyncqt` je potřeba na začátku programu naimportovat a nastavit
-jako hlavní smyčku událostí, a poté ji, místo Qt-ovského `app.exec()`, spustit.
-Jednotlivé asynchronní funkce se pak používají jako v čistém `asyncio`:
-pomocí `asyncio.ensure_future`, `await`, atd.
-
-[uvloop]: https://pypi.org/project/uvloop/
-[asyncqt]: https://pypi.org/project/asyncqt/
-
-Ukázka:
-
-```python
-import asyncio
-
-from PyQt5 import QtGui, QtWidgets
-from asyncqt import QEventLoop
-
-app = QtWidgets.QApplication([])
-loop = QEventLoop(app)
-asyncio.set_event_loop(loop)
-
-display = QtWidgets.QLCDNumber()
-display.setWindowTitle('Stopwatch')
-
-display.show()
-
-async def update_time():
-    value = 0
-    while True:
-        display.display(value)
-        await asyncio.sleep(1)
-        value += 1
-
-asyncio.ensure_future(update_time())
-
-loop.run_forever()
-```
-
-
 Komunikace
 ----------
 
@@ -543,4 +472,78 @@ async def main(url):
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main('http://python.cz'))
 loop.close()
+```
+
+
+A další
+-------
+
+Nakonec několik tipů, o kterých je dobré vědět.
+
+V `asyncio` najdeme synchronizační mechanismy známé z vláknového programování, např.
+`Lock` a `Semaphore` – viz [dokumentace](https://docs.python.org/3/library/asyncio-sync.html).
+
+Musíme-li použít blokující funkci, která např. komunikuje po síti bez `await` a která by
+tedy zablokovala i všechny ostatní úlohy, můžeme použít
+`loop.run_in_executor()`, a tím danou funkci zavolat ve vlákně nebo podprocesu, ale výsledek zpřístupnit
+jako objekt, na který lze počkat pomocí `await`.
+Použití je opět popsáno v [dokumentaci](https://docs.python.org/3/library/asyncio-eventloop.html#executor).
+
+Občas vás při programování s `asyncio` zaskočí zrádná chyba.
+V takových případech je dobré zapnout *debug* režim pomocí proměnné prostředí `PYTHONASYNCIODEBUG=1`.
+V tomto režimu `asyncio` upozorňuje na časté chyby, do některých chybových výpisů přidává informaci o tom,
+kde aktuální `Task` vznikl, apod.
+Více informací je zase v [dokumentaci](https://docs.python.org/3/library/asyncio-dev.html#asyncio-dev).
+
+
+Alternativní smyčky událostí
+----------------------------
+
+Jak bylo zmíněno na začátku, hlavní cíl `asyncio` je definovat společné rozhraní
+pro různé asynchronní knihovny, aby bylo možné např. kombinovat knihovny pro
+Tornado se smyčkou událostí v Twisted.
+Samotná knihovna `asyncio` je jen jedna z mnoha implementací tohoto rozhraní.
+Zajímavá je například knihovna [uvloop], která je asi 2-4× rychlejší než `asyncio`
+(ale má závislosti, které se pro součást standardní knihovny nehodí).
+
+Další zajímavá implementace je [asyncqt], která pod standardním `asyncio` API používá
+smyčku událostí z Qt.
+Umožňuje tak efektivně zpracovávat Qt události zároveň s asynchronními funkcemi
+známými z `asyncio`.
+
+*Event loop* z `asyncqt` je potřeba na začátku programu naimportovat a nastavit
+jako hlavní smyčku událostí, a poté ji, místo Qt-ovského `app.exec()`, spustit.
+Jednotlivé asynchronní funkce se pak používají jako v čistém `asyncio`:
+pomocí `asyncio.ensure_future`, `await`, atd.
+
+[uvloop]: https://pypi.org/project/uvloop/
+[asyncqt]: https://pypi.org/project/asyncqt/
+
+Ukázka:
+
+```python
+import asyncio
+
+from PyQt5 import QtGui, QtWidgets
+from asyncqt import QEventLoop
+
+app = QtWidgets.QApplication([])
+loop = QEventLoop(app)
+asyncio.set_event_loop(loop)
+
+display = QtWidgets.QLCDNumber()
+display.setWindowTitle('Stopwatch')
+
+display.show()
+
+async def update_time():
+    value = 0
+    while True:
+        display.display(value)
+        await asyncio.sleep(1)
+        value += 1
+
+asyncio.ensure_future(update_time())
+
+loop.run_forever()
 ```
