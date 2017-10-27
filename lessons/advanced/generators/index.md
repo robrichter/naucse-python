@@ -142,8 +142,8 @@ with ctx_manager() as obj:
 
 Vše před `yield` se provede při vstupu do kontextu, hodnota `yield` se předá
 dál a vše po `yield` se provede na konci.
-Můžeme si představit, že místo `yield` se „doplní“ obsah bloku `with`.
-Funkce se tam na chvíli zastaví a může se tedy provádět něco jiného.
+Můžeme si představit, že místo `yield` se „doplní“ obsah bloku `with` –
+funkce se tam na chvíli zastaví a může se tedy provádět něco jiného.
 
 
 Vracení hodnot z generátorů
