@@ -235,6 +235,9 @@ způsoby:
   úlohy „vyčerpaly“), nebo
 * `loop.run_until_complete(task)` – tahle funkce skončí hned, jakmile je hotová
   daná úloha, a vrátí její výsledek.
+* Od Pythonu 3.7 můžete použít jednoduché `asyncio.run(task)`, aniž byste museli
+  explicitně pracovat s určitou smyčkou událostí. Jedná se ale o API, které se
+  v budoucnu může změnit.
 
 Nakonec je smyčku potřeba uzavřít (`loop.close()`), což např. dá použitým
 knihovnám možnost korektně uzavřít zbylá síťová spojení.
@@ -245,10 +248,6 @@ a zase ji zavře.
 Chcete-li ji použít (a tedy psát kód jen pro Python 3.7+), používejte pak všude
 místo `ensure_future` funkci `create_task`, která vás lépe ochrání před
 těžko nalezitelnými chybami.
-
-
-Async funkce a Task
--------------------
 
 Smyčka událostí provádí úlohy a asynchronní funkce.
 
@@ -274,16 +273,99 @@ těla funkce:
 Naplánujeme-li provádění *coroutine* na smyčce událostí
 (např. pomocí `run_until_complete`), tělo funkce se začne vykonávat:
 
-```pycon
->>> loop = asyncio.get_event_loop()
->>> result = loop.run_until_complete(coroutine)
-Demo
+Futures
+-------
+
+Jak už bylo řečeno, knihovna `asyncio` je uvnitř založená na *futures*.
+Copak to je?
+
+`Future` je objekt, který reprezentuje budoucí výsledek nějaké operace.
+Poté, co tato operace skončí, se výsledek dá zjistit pomocí metody `result()`;
+jestli je operace hotová se dá zjistit pomocí `done()`.
+`Future` je taková „krabička“ na vrácenou hodnotu – než tam něco
+tu hodnotu dá, musíme počkat; poté je hodnota stále k dispozici.
+Tohle čekání se dělá pomocí `await` (nebo `loop.run_until_complete`).
+
+```python
+import asyncio
+
+
+async def set_future(fut):
+    """Sets the value of a Future, after a delay"""
+    print('set_future: sleeping...')
+    await asyncio.sleep(1)
+    print('set_future: setting future')
+    fut.set_result(123)
+    print('set_future done.')
+
+
+async def get_future(fut):
+    """Receives the value of a Future, once it's ready"""
+    print('get_future: waiting for future...')
+    await fut
+    print('get_future: getting result')
+    result = fut.result()
+    print('get_future: done')
+    return result
+
+
+future = asyncio.Future()
+
+
+# Schedule the "set_future" task (explained later)
+asyncio.ensure_future(set_future(future))
+
+
+# Run the "get_future" coroutine until complete
+loop = asyncio.get_event_loop()
+result = loop.run_until_complete(get_future(future))
+loop.close()
+
+print('Result is', result)
 ```
 
-V rámci jedné *coroutine* pak lze provedení jiné *coroutine* naplánovat
-a počkat na jejich skončení pomocí `await`.
-Jak `run_until_complete` tak `await` nám dají k dispozici návratovou hodnotu
-příslušné asynchronní funkce.
+Do `Future` se dá vložit i výjimka.
+To se využívá v případě, že úloha, která má `Future` naplnit, selže. 
+Metoda `result()` potom tuto výjimku způsobí v kódu, který by výsledek
+zpracovával.
+
+Na `Future` se navíc dají navázat funkce, které se zavolají jakmile je
+výsledek k dispozici.
+Dá se tak implementovat *callback* styl programování (který možná znáte
+např. z Node.js). Pomocí *futures & callbacks* se před nástupem
+generátorů programovalo pro knihovny jako `Twisted`.
+
+Podobně jako `yield` se `await` dá použít jako výraz, jehož
+hodnota je výsledek dané `Future`.
+Funkci `get_future` z příkladu výše tak lze napsat stručněji:
+
+```python
+async def get_future(fut):
+    """Receives the value of a Future, once it's ready"""
+    return (await fut)
+```
+
+Další vlastnost `Future` je ta, že se dá „zrušit“: pomocí `Future.cancel()`
+signalizujeme úloze, která má připravit výsledek, že už ten výsledek
+nepotřebujeme.
+Po zrušení bude `result()` způsobovat `CancelledError`.
+
+
+Async funkce a Task
+-------------------
+
+Používání `Future` (nebo *callback* funkcí) je poněkud těžkopádné.
+V `asyncio` se `Future` používají hlavně proto, že je na ně jednoduché
+navázat existující knihovny.
+Aplikační kód je ale lepší psát pomocí asynchronních funkcí, tak jako
+v příkladu výše.
+
+Asynchronní funkce se dají kombinovat pomocí `await` podobně jako generátory
+pomocí `yield from`.
+Nevýhoda asynchronních funkcí spočívá v tom, že na každé zavolání takové funkce
+lze použít jen jeden `await`.
+Na rozdíl od `Future` se výsledek nikam neukládá;
+jen se po skončení jednou předá.
 
 ```python
 import asyncio
@@ -547,3 +629,4 @@ asyncio.ensure_future(update_time())
 
 loop.run_forever()
 ```
+
