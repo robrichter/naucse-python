@@ -94,7 +94,7 @@ kde jsou nadpisy a kde odstavce, jak má stránka vypadat, a tak dále.
 Ale v odpovědi může být místo stránky i cokoli jiného – obrázek, video, nebo
 jiná data.
 
-Veškerá komunikace přes HTTP funguje právě takto: pošle se požadavek
+Veškerá komunikace přes HTTP funguje právě takto: pošle se požadavek,
 a přijde na něj odpověď.
 
 A jak tyhle zprávy vypadají?
