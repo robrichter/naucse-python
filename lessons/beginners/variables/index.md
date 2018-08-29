@@ -26,6 +26,16 @@ a obsah jako <var>S</var> = <var>a</var>².
 > na základy programování si vystačíme s matematickými
 > znalostmi ze základní školy.
 
+
+
+Výsledky vypiš pomocí `print()`.
+Po spuštění by měl program vypsat neco jako:
+
+```
+Obvod čtverce se stranou 356 cm je 1424 cm
+Obsah čtverce se stranou 356 cm je 126736 cm2
+```
+
 Výsledky by měl spočítat Python; číslo 1424 nebo 126736 přímo do programu nepiš.<br>
 Jestli si nevíš rady, podívej se na program <code>printing.py</code>
 z [lekce o `print`]({{ lesson_url('beginners/print') }}), kde jeden řádek dělá něco podobného.

@@ -93,21 +93,104 @@ $ python3 -m ensurepip --version
 ```
 
 Objeví-li se výpis začínající „pip“, máš funkční `venv` nainstalovaný.
-Zbytek této sekce můžeš přeskočit!
+Přejdi na sekci [vytvoření virtuálního prostředí](#setup-venv).
 
-Objeví-li se ale nápis `No module named ensurepip`, je potřeba doinstalovat
-alternativu, Virtualenv:
+Objeví-li se nápis `No module named ensurepip`, je potřeba doinstalovat
+alternativu, Virtualenv.
+Zapamatuj si, že Virtualenv budeš muset v dalším kroku použít,
+a nainstaluj ho:
 
 <!-- na Fedoře se tohle nestává -->
 
-* **Ubuntu**:
+* Ubuntu:
   {% filter markdown(inline=True) %}
   ```console
   $ sudo apt-get install python-virtualenv
   ```
   {% endfilter %}
 
-Používáš-li jinou distribuci, doufám, že instalovat programy už umíš.
+Používáš-li jinou distribuci, předpokládám, že instalovat programy už umíš. :)
 
-Instaluješ-li Virtualenv, **zapamatuj si**, že ho budeš muset použít později
-při vytváření virtuálního prostředí.
+
+{{ anchor('setup-venv') }}
+## Vytvoření virtuálního prostředí
+
+<!-- Pozn. Tahle sekce je velice podobná pro Linux, Mac i Windows;
+     měníš-li ji, koukni se jestli není změna potřeba i jinde. -->
+
+{%- if var('pyladies') -%}
+{% set rootname = 'pyladies' %}
+{%- else -%}
+{% set rootname = 'naucse-python' %}
+{%- endif -%}
+
+Nakonec vytvoř virtuální prostředí.
+
+Zvol si adresář (složku), ve které budeš mít soubory ke kurzům Pythonu.
+Může to být třeba <code>/home/<i>jméno</i>/{{ rootname }}</code>,
+neboli ~/{{ rootname }}.
+Adresář vytvoř a poznamenej si, kde je.
+
+Vytváříš-li adresář jinde, nebo s jiným názvem, tak kdykoli ve zbytku
+materiálů uvidíš <code class="pythondir">~/{{ rootname }}</code>, doplň
+místo toho „svůj“ adresář.
+
+Zvolený adresář po vytvoření nesmíš přesouvat jinam – když to uděláš,
+přestane virtuální prostředí fungovat.
+Proto ho nedoporučuji vytářet na Ploše.
+
+> [note]
+> Kdybys někdy chtěl{{a}} adresář přece jen přesunout,
+> musel{{a}} bys smazat virtuální prostředí a vytvořit nové.
+
+Teď když je tenhle adresář vytvořený, otevři příkazovou řádku
+a příkazem `cd` se do něj přepni:
+<!-- XXX: Special highlight in source code needed -->
+```console
+$ cd ~/{{ rootname }}
+```
+
+Pak virtuální prostředí vytvoř.
+Pokud jsi v přeskočil{{a}} instalaci Virtualenv, zadej:
+
+```console
+$ python3 -m venv venv
+```
+
+jinak:
+
+```console
+$ virtualenv -p python3 venv
+```
+
+Tím se ti vytvořil adresář <code><span class="pythondir">~/{{ rootname }}</span>/venv</code>,
+ve kterém jsou soubory s virtuálním prostředím.
+Můžeš se podívat dovnitř, ale nikdy tam nic neměň.
+
+
+## Aktivace virtuálního prostředí
+
+Nakonec virtuální prostředí aktivuj.
+Přejdi do adresáře, kde máš soubory ke kurzům Pythonu (`~/{{ rootname}}`),
+a zadej:
+
+<div class="highlight">
+<pre><code><span class="gp">$</span> source <span class="pythondir">~/{{ rootname }}</span>/venv/bin/activate
+</code></pre>
+</div>
+
+Po spuštění tohoto příkazu by se měla na začátku příkazové řádky
+(před `$`) objevit poznámka `(venv)`.
+Tak poznáš, že je virtuální prostředí *aktivní*.
+
+Tenhle příkaz si zapiš. Budeš ho muset zadat vždycky, když pustíš příkazovou řádku,
+než se pustíš do programování.
+
+{% if var('pyladies') %}
+Máš-li vytištěné <a href="http://pyladies.cz/v1/s001-install/handout/handout.pdf">domácí projekty</a>,
+příkaz si poznač, ať ho do příště nezapomeneš :)
+{% endif %}
+
+Python máš, můžeš se pustit do programování!
+To už bude stejné pro tebe i pro lidi na Linuxu a Windows.
+Sejdeme se na [další stránce]({{ lesson_url('beginners/first-steps') }}), kde uděláme první krůčky s Pythonem.
