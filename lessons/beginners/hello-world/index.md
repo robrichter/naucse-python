@@ -31,6 +31,7 @@ Pak soubor ulož pod jménem `ahoj.py`:
 Pokud máš v ukládacím okýnku možnost zvolit *kódování*, zvol `UTF-8`.
 Můžeš–li zvolit typ souboru, zvol `.py` nebo „všechny soubory“.
 
+## Spuštění
 
 Otevři si příkazovou řádku.
 Pomocí `cd` donaviguj do adresáře, kde máš soubory ke kurzům Pythonu.
@@ -40,15 +41,14 @@ Pomocí `cd` donaviguj do adresáře, kde máš soubory ke kurzům Pythonu.
 > v [minulé lekci](../../beginners/cmdline/), která popisuje i změnu aktuálního
 > adresáře pomocí příkazu `cd`.
 
-## Spuštění
-
 Aktivuj si virtuální prostředí.
 
 > [note]
 > Příkaz k tomu jsme si ukázali na konci
 > [návodu na tvorbu virtuálního prostředí](../venv-setup/); končí `activate`.
 
-Potom vlez do adresáře s programem (`cd 02`) a zadej tento příkaz:
+
+Pak zadej tento příkaz:
 
 ```console
 (venv)$ python ahoj.py
@@ -62,7 +62,7 @@ Jestli to nefunguje, zkontroluj, že:
 * Máš zapnuté virtuální prostředí.
   (Na příkazové řádce se musí ukazovat <code>(venv)</code>;
   pokud tam není, použij příkaz „activate“ z [minula]({{ lesson_url('beginners/install') }}).)
-* Jsi ve správném adresáři. Zkus `pwd` (Unix) nebo `dir` (Windows).
+* Jsi ve správném adresáři. Zkus `pwd` (Unix) nebo `cd` (Windows).
   Aktuální adresář musí být ten, do kterého jsi uložil{{a}}
   soubor s programem.
 * Soubor se opravdu jmenuje `ahoj.py`.

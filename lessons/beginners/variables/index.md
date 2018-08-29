@@ -26,6 +26,10 @@ a obsah jako <var>S</var> = <var>a</var>².
 > na základy programování si vystačíme s matematickými
 > znalostmi ze základní školy.
 
+Pro připomenutí, obvod čtverce se stranou <var>a</var>
+se dá vypočítat jako <var>O</var> = 4<var>a</var>
+a obsah jako <var>S</var> = <var>a</var>².
+Řekněme, že náš čtverec má stranu <var>a</var> = 356 cm.
 
 
 Výsledky vypiš pomocí `print()`.

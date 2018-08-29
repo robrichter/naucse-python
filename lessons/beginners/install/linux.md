@@ -93,23 +93,21 @@ $ python3 -m ensurepip --version
 ```
 
 Objeví-li se výpis začínající „pip“, máš funkční `venv` nainstalovaný.
-Přejdi na sekci [vytvoření virtuálního prostředí](#setup-venv).
+Zbytek této sekce můžeš přeskočit!
 
-Objeví-li se nápis `No module named ensurepip`, je potřeba doinstalovat
-alternativu, Virtualenv.
-Zapamatuj si, že Virtualenv budeš muset v dalším kroku použít,
-a nainstaluj ho:
+Objeví-li se ale nápis `No module named ensurepip`, je potřeba doinstalovat
+alternativu, Virtualenv:
 
 <!-- na Fedoře se tohle nestává -->
 
-* Ubuntu:
+* **Ubuntu**:
   {% filter markdown(inline=True) %}
   ```console
   $ sudo apt-get install python-virtualenv
   ```
   {% endfilter %}
 
-Používáš-li jinou distribuci, předpokládám, že instalovat programy už umíš. :)
+Používáš-li jinou distribuci, doufám, že instalovat programy už umíš.
 
 
 {{ anchor('setup-venv') }}
