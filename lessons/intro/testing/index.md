@@ -751,7 +751,7 @@ Do repozitáře přidejte soubor `.travis.yml`:
 ```yaml
 language: python
 python:
-- '3.6'
+- '3.7'
 install:
 - python setup.py install
 script:
