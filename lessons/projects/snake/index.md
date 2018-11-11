@@ -4,8 +4,8 @@ Dnes to všechno — třídy, grafiku, seznamy a tak dále –
 spojíme dohromady do závěrečného projektu.
 Doufám, že se ti bude líbit!
 
-Naším cílem bude vytvořit klon známé hry [Snake (neboli Had)](https://en.wikipedia.org/wiki/Snake_(video_game_genre)),
-jejíž princip je tu s námi od roku 1976. Největší popularity se Had dočkal
+Naším cílem bude vytvořit klon známé hry [Snake (neboli Had)](https://en.wikipedia.org/wiki/Snake_\(video_game_genre\)),
+jejíž princip je tu s námi od roku 1976. Největší popularity se Had dočkal
 díky mobilním telefonům Nokia, kde je jako základní hra dostupný od roku 1998
 až dodnes.
 
