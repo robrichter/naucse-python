@@ -216,7 +216,7 @@ else:
 Příkazy `if` se dají *zanořovat* (angl. *nest*).
 V odsazeném (podmíněném) bloku kódu může být další `if` s dalším odsazeným
 kódem.
-Třeba u tohoto programu, který rozdává nejapné rady do života:
+Třeba u tohoto programu, který rozdává naivní rady do života:
 
 ```python
 stastna = input('Jsi šťastná?')

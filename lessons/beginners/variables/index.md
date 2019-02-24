@@ -52,7 +52,7 @@ spusť ho:
 * zadej `python ctverec.py`.
 
 Funguje? Jestli ne, oprav ho a zkus to znovu!
-Když už jsi v příkazové řádce ve správném adresáři, spuštění znamená zadat
+Když už jsi v příkazové řádce ve správném adresáři, spuštění znamená zadat
 znovu příkaz `python ctverec.py`.
 Abys to nemusel{{a}} celé psát, můžeš se k předchozímu příkazu vrátit
 pomocí šipky nahoru, <kbd>↑</kbd>.
