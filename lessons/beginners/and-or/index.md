@@ -46,10 +46,10 @@ if a <= 0 or b <= 0:
 
 > [warning] Falešní kamarádi
 >
-> Pozor na to, že `and` a `or` nejsou anglická slovíčka, ale operátory,
+> Pozor na to, že `and` a `or` nejsou anglická slovíčka, ale operátory
 > které spojují logické výrazy.
-> Na *obě* strany `and` i `or` patří výraz, jehož hodnota je `True`/`False`
-> (například porovnání).
+> Na *obě* strany `and` i `or` patří porovnání (nebo proměnná/výraz,
+> ve které je `True`/`False`):
 >
 > ```python
 > if a <= 0 or b <= 0:
