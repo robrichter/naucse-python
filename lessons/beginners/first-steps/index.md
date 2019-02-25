@@ -20,9 +20,8 @@ ale jsou psané v angličtině a pro trochu pokročilejší publikum.
 Třemi „zobáčky“ `>>>` pak Python poprosí o instrukce.
 Je to jako v příkazové řádce, ale místo příkazů jako `cd` a `mkdir` sem budeš psát příkazy Pythonu.
 
-Příkazy z příkazové řádky v Pythonu nefungují,
-ačkoli okýnko vypadá skoro stejně.
-Vyzkoušej si to. Za „zobáčky“ napiš `whoami` a zmáčkni Enter:
+Vyzkoušej si, že příkazy z příkazové řádky v Pythonu nefungují,
+ačkoli okýnko vypadá skoro stejně:
 
 ```pycon
 >>> whoami
