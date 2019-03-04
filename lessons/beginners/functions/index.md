@@ -78,9 +78,6 @@ delka = len(slovo)      # Vypočítání délky
 print(delka)
 ```
 
-To `len` je *funkce* (angl. *function*).
-Jak se takové funkce používají?
-
 K tomu, abys funkci mohl{{a}} použít, potřebuješ znát její
 *jméno* – tady `len`.
 Za jméno funkce patří závorky,
@@ -176,7 +173,7 @@ print(         9     )
 … a podobně.
 
 
-### Procedury
+### Funkce a procedury
 
 Možná sis všiml{{a}}, že jednu funkci už voláš déle: `print("Ahoj!")`
 je taky volání funkce.
@@ -210,6 +207,23 @@ Pár příkladů:
 > odkaž ho prosím na tyto materiály.
 
 
+Kontrolní otázky:
+
+* Je `input` „normální“ funkce, nebo procedura?
+* Co bere funkce `input` jako argument?
+* Jaká je návratová hodnota funkce `input`?
+
+{% filter solution %}
+Funkce `input` vrací hodnotu, se kterou může program dál pracovat.
+Zařadil bych ji tedy mezi „normální“ funkce.
+
+Jako argument bere `input` otázku, na kterou se uživatele zeptá.
+
+Návratová hodnota funkce `input` je uživatelova odpověď.
+{% endfilter %}
+
+
+
 ## Argumenty
 
 Argument je to, co funkci dáš k dispozici. Hodnota, se kterou funkce pracuje.
@@ -234,7 +248,7 @@ print("Jedna plus dva je", 1 + 2)
 
 Některé funkce nepotřebují žádný argument.
 Příkladem je zase `print`.
-Je ale nutné použít závorky – i když jsou prázdné.
+Je ale nutné napsat závorky – i když jsou prázdné.
 Hádej, co tohle volání udělá?
 
 ```python
@@ -243,6 +257,9 @@ print()
 
 {% filter solution %}
 Funkce `print` zavolaná bez argumentů napíše prázdný řádek.
+
+(Je to přesně podle definice – funkce `print` všechny své argumenty vypíše
+na řádek.)
 {% endfilter %}
 
 
@@ -294,6 +311,33 @@ a chybové hlášky, abys pak podobné chyby poznal{{a}}:
 print(len('a'))     # Volání funkce (a vypsání výsledku)
 print(len)          # Vypsání samotné funkce
 print(len + 1)      # Sečtení funkce a čísla
+```
+
+
+### Vstup a výstup
+
+Tyhle funkce už známe.
+`print` vypíše nepojmenované argumenty, oddělené mezerou.
+Pojmenovaný argument `end` určuje, co se vypíše na konci (místo přechodu
+na nový řádek);
+`sep` zase, co se vypíše mezi jednotlivými argumenty (místo mezery).
+
+> [note]
+> Příklad opět doporučuji spustit ze souboru, ne
+> interaktivně:
+
+```python
+print(1, "dvě", False)
+print(1, end=" ")
+print(2, 3, 4, sep=", ")
+```
+
+Základní funkce na načtení vstupu, `input`,
+vypíše otázku, počká na text od uživatele
+a ten vrátí jako řetězec.
+
+```python
+input('zadej vstup: ')
 ```
 
 ## Přehled funkcí
