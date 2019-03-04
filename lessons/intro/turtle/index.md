@@ -209,7 +209,7 @@ exitonclick()
 Tolik kódu! Tohle musí jít nějak zjednodušit!
 
 Jde.
-Pojďme se naučit, jak v Pythonu nějakou činnost opakovat.
+Pojďme se naučit jak v Pythonu nějakou činnost opakovat.
 
 
 ## Jak opakovat – a neopakovat *se*
@@ -372,6 +372,18 @@ počítá, jak už je daleko.
 >    print('Nikdy nebudu odsazovat o tři mezery!')
 > ```
 
+## Čtverec II
+
+A znovu ke kreslení, tentokrát s použitím cyklů!
+
+Nakresli čtverec. To se dělá následovně:
+
+* Čtyřikrát:
+  * Popojdi dopředu (a kresli přitom čáru)
+  * Otoč se o 90°
+
+![Želví čtverec](static/turtle-square.png)
+
 ## Dlouhá přerušovaná čára
 
 Už víš, že pomocí `penup` a `pendown` lze nakreslit přerušenou čáru:
@@ -405,7 +417,6 @@ for i in range(10):
 exitonclick()
 ```
 {% endfilter %}
-
 
 Pak zkus zařídit, aby jednotlivé čárky byly postupně
 větší a větší.
