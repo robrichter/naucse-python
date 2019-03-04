@@ -211,6 +211,7 @@ Tolik kódu! Tohle musí jít nějak zjednodušit!
 Jde.
 Pojďme se naučit jak v Pythonu nějakou činnost opakovat.
 
+## Opakování
 
 ## Jak opakovat – a neopakovat *se*
 
@@ -246,7 +247,7 @@ Zkus napsat ještě jeden vzorový program, který v češtině zní:
 * Pro každý <var>pozdrav</var> z výčtu: „Ahoj“, “Hello”, “Hola”, ”Hei”, "SYN":
   * Vypiš <var>pozdrav</var> a za ním vykřičník.
 
-A v Pythonu:
+V Pythonu se tento program zapíše jako:
 
 ```python
 for pozdrav in 'Ahoj', 'Hello', 'Hola', 'Hei', 'SYN':
@@ -399,6 +400,26 @@ exitonclick()
 ## Dlouhá přerušovaná čára
 
 Už víš, že pomocí `penup` a `pendown` lze nakreslit přerušenou čáru:
+
+```python
+from turtle import forward, penup, pendown, exitonclick
+
+forward(30)
+penup()         # od teď želva nekreslí
+forward(5)
+pendown()       # od teď želva zase kreslí
+forward(30)
+
+exitonclick()
+```
+{% endfilter %}
+
+## Přerušovaná čára
+
+Funkce `penup` a `pendown`
+z modulu `turtle` řeknou želvě,
+aby přestala, resp. začala kreslit.
+Zkus si to:
 
 ```python
 from turtle import forward, penup, pendown, exitonclick
