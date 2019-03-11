@@ -205,6 +205,8 @@ pomlčkami `-`. Délka každého řetězce je tedy celkem 3:
 -🂽-
 ```
 
+Jména a čísla se dají dohledat na internetu.
+
 
 ### Zpětné lomítko
 
@@ -292,7 +294,7 @@ Výsledek zjistíš snadno, zkus se ale zamyslet a Python použít jen pro ově�
 
 {# Highlighted as plain text to avoid spoilers #}
 ```plain
-{# 2, 3, 4, 5 -#}
+{# 2, 3, 4, 5 #}
 print(len('ahoj'))
 print(len("""Ahoj!"""))
 print(len('a b'))
@@ -311,6 +313,9 @@ if True:
     print(len("""a
     b"""))
 
-{# 7, 8, 9, 10 #}
+{# 7, 8, 9, more #}
 print(len('C:\new_dir'))
+
+print(len(f'{print}'))
 ```
+
