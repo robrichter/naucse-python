@@ -180,8 +180,8 @@ def ano_nebo_ne(otazka):
             return True
         elif odpoved == 'ne':
             return False
-
-        print('Nerozumím! Odpověz "ano" nebo "ne".')
+        else:
+            print('Nerozumím! Odpověz "ano" nebo "ne".')
 
 # Příklad použití
 if ano_nebo_ne('Chceš si zahrát hru? '):
