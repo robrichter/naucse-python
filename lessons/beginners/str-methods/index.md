@@ -108,3 +108,51 @@ A úplně všechny řetězcové metody jsou popsány v [dokumentaci Pythonu](ht
 
 Všimni si, že `len` není metoda, ale funkce; píše se `len(r)`, ne `r.len()`.
 Proč tomu tak je, to za nějakou dobu poznáš.
+
+
+## Metoda format
+
+Pro úplnost: občas uvidíš metoda `format`, která doplní do šablony
+podobné jako u formátovacích řetězců (`f'...'`).
+
+```python
+sablona = '{a}×{b} je {vysledek}'
+vypis = sablona.format(vysledek=3 * 4, a=3, b=4)
+print(vypis)
+```
+
+Funguje i zkrácený zápis, kdy necháš závorky prázdné a argumenty nepojmenuješ:
+
+```python
+vypis = 'Ahoj {}! Výsledek je {}.'.format('Elvíro', 7)
+print(vypis)
+```
+
+
+## Cvičení
+
+Zkus napsat funkci `zamen(retezec, pozice, znak)`.
+
+Tato funkce vrátí řetězec, který má na dané pozici
+daný znak; jinak je stejný jako původní `retezec`. Například:
+
+```python
+# Zaměň třetí znak ve slově "čokoláda"
+print(zamen('čokoláda', 3, 'u'))   # → čokuláda
+```
+
+Pozor na to, že řetězce v Pythonu nelze měnit.
+Musíš vytvořit nový řetězec poskládaný z částí toho starého.
+
+{% filter solution %}
+```python
+def zamen(retezec, pozice, znak):
+    """Zamění znak na dané pozici
+
+    Vrátí řetězec, který má na dané pozici daný znak;
+    jinak je stejný jako vstupní retezec
+    """
+
+    return retezec[:pozice] + znak + retezec[pozice + 1:]
+```
+{% endfilter %}
