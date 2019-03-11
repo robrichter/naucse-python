@@ -170,7 +170,7 @@ Zkus si, jestli zvládneš předpovědět výsledek těchto výrazů:
 {% endfilter %}
 
 
-Znaků, které se zadávají sekvencí se zpětným lomítkem, je více.
+Znaků které se zadávají sekvencí se zpětným lomítkem je více.
 Jedna ze zajímavějších je `\t`, představující tabulátor – jediný znak, který
 se, když ho vypíšeš, „roztáhne“ na víc mezer.
 
@@ -268,7 +268,6 @@ Prase kozu potrkalo!'''
 Pozor na to, že pokud je tenhle řetězec
 v odsazeném kódu, každý jeho řádek bude začínat
 několika mezerami.
-(V dokumentačních řetězcích tohle nevadí, tam se s odsazením počítá.)
 
 ```python
 cislo = 4
@@ -280,6 +279,9 @@ if cislo > 0:
         Číslo je kladné.
     """)
 ```
+
+Víceřádkové řetězce se často používají jako dokumentační řetězce funkcí.
+U nich nevadí, že jsou na začátku řádků mezery.
 
 
 ## Cvičení
