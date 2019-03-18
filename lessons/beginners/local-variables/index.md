@@ -178,7 +178,7 @@ Zkus odpovědět na tyto otázky:
 
 Pravidla pro lokální proměnné jsou pro začátečníky jednou z nejzvláštnějších
 věcí v Pythonu.
-Jsou ale přínosná – umožňují některé užitečné techniky, např. rekurzi.
+Jsou ale užitečná – umožňují některé užitečné techniky, např. rekurzi.
 
 Jestli ti to celé připadá složité, dá se tomu zatím vyhnout dodržováním jednoho
 pravidla:
