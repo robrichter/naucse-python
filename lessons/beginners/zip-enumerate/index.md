@@ -257,3 +257,44 @@ for vec, barva in zip_longest(veci, barvy):
         barva = 'bez barvy'
     print(f"{vec} je {barva}")
 ```
+
+
+## Zip Longest: Pro ty co chtějí všechno
+
+Jak se `zip` chová, když dostane seznamy různých délek?
+
+```python
+veci = ['tráva', 'slunce', 'mrkev', 'řeka', 'myšlenka', 'spravedlnost']
+barvy = ['zelená', 'žluté', 'oranžová', 'modrá']
+for vec, barva in zip(veci, barvy):
+    print(f"{vec} je {barva}")
+```
+
+{% filter solution %}
+Výsledek `zip` skončí hned když „dojde“ nejkratší sekvence.
+{% endfilter %}
+
+Občas je potřeba projít všechny záznamy.
+Na to slouží funkce `zip_longest` z modulu `itertools`:
+
+```python
+from itertools import zip_longest
+for vec, barva in zip_longest(veci, barvy, fillvalue='(nevím)'):
+    print(f"{vec} je {barva}")
+```
+
+Argument `fillvalue` říká, co se doplní za chybějící hodnoty.
+Když ho nezadáš, doplní se `None` („nic“, hodnota kterou např. vrací procedury).
+To se často používá, když je pro chybějící hodnoty potřeba nějaká
+složitější logika:
+
+```python
+from itertools import zip_longest
+for vec, barva in zip_longest(veci, barvy):
+    if vec == None:
+        vec = 'nějaká věc'
+    if barva == None:
+        barva = 'bez barvy'
+    print(f"{vec} je {barva}")
+```
+
