@@ -31,6 +31,10 @@ třetí od shora. Vypadá jako čtverec, který má v sobe ještě jeden.
 
 Kód, který jsi vytvořil můžeš spustit přes zabudovaný terminál. Co to je a jak ho používat se dozvíš v dalších lekcích.
 
+## Odesílání telemetrických dat
+
+Kód, který jsi vytvořil můžeš spustit přes zabudovaný terminál. Co to je a jak ho používat se dozvíš v dalších lekcích.
+
 ### Odesílání telemetrických dat
 
 Tento textový editor ale odesílá data o tvém používání ([nejspíš včetně např.
