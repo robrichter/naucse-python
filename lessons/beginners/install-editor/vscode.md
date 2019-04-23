@@ -1,9 +1,9 @@
 {% set editor_name = 'Visual Studio Code' %} {% set editor_url = 'https://code.visualstudio.com' %} 
 {% extends lesson.slug + '/_base.md' %}
 
-{% block name_gen %}Visual Studio Code{% endblock %}
+{% block name_gen %}Instalace Visual studio code{% endblock %}
+{% block setup %}
 
-{% block install %}
 ## Stažení a instalace 
 
 Editor si můžeš stáhnout z jeho [domovské stránky](https://code.visualstudio.com/).
@@ -27,10 +27,6 @@ třetí od shora. Vypadá jako čtverec, který má v sobe ještě jeden.
 6. Vyčkej, než se rozšíření nainstaluje. Editor se restartuje a zobrazí se ti okno nápovědy rozšíření.
 
 ## Spuštění kódu
-
-Kód, který jsi vytvořil můžeš spustit přes zabudovaný terminál. Co to je a jak ho používat se dozvíš v dalších lekcích.
-
-## Odesílání telemetrických dat
 
 Kód, který jsi vytvořil můžeš spustit přes zabudovaný terminál. Co to je a jak ho používat se dozvíš v dalších lekcích.
 
