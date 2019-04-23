@@ -9,26 +9,7 @@
 Editor si můžeš stáhnout z jeho [domovské stránky](https://code.visualstudio.com/).
 Vyber na ní zelené tlačítko Download a vyber instalátor pro svůj systém.
 Dále se řiď instrukcemi instalátoru jako u každého jiného programu.
-{% endblock %}
 
-{% block setup %}
-
-Editor VSCode or Microsoftu podobně jako Atom funguje ihned po instalaci bez těžkého nastavování
-Pokud ale chceš v editoru psát Python kód (nebo obecně každý jazyk) nainstaluj si rozšíření pro daný jazyk. 
-
-## Instalace rozšíření pro Python
-
-1. Otevři si VSCode editor.
-2. V sloupci úpně na levo(šedý) klikni na ikonku rozšíření. Ve výchozí pozici
-třetí od shora. Vypadá jako čtverec, který má v sobe ještě jeden.
-3. Do vyhledávacího boxu zadej "Python".
-4. Zvol první výsledek (v rohu je označen hvězdičkou).
-5. V nově otevřeném okně klikni na modré tlačítko "Install".
-6. Vyčkej, než se rozšíření nainstaluje. Editor se restartuje a zobrazí se ti okno nápovědy rozšíření.
-
-## Spuštění kódu
-
-Kód, který jsi vytvořil můžeš spustit přes zabudovaný terminál. Co to je a jak ho používat se dozvíš v dalších lekcích.
 
 ### Odesílání telemetrických dat
 
