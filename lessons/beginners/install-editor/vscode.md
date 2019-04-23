@@ -12,7 +12,6 @@ Dále se řiď instrukcemi instalátoru jako u každého jiného programu.
 {% endblock %}
 
 {% block setup %}
-Ve Visual Studio Code se nemusí nic nastavovat, funguje „od výroby“ tak, jak má.
 
 Editor VSCode or Microsoftu podobně jako Atom funguje ihned po instalaci bez těžkého nastavování
 Pokud ale chceš v editoru psát Python kód (nebo obecně každý jazyk) nainstaluj si rozšíření pro daný jazyk. 
