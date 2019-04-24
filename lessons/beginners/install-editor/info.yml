@@ -9,9 +9,6 @@ subpages:
     atom:
         title: Nastavení Atomu
         subtitle: Atom
-    vscode:
-        title: Nastavení Visual Studio Code
-        subtitle: Visual Studio Code
     kate:
         title: Nastavení Kate
         subtitle: Kate
