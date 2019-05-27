@@ -170,10 +170,10 @@ se koťátka chovají.
 je konkrétní objekt (angl. *instance*) té třídy:
 hodnota, která reprezentuje kotě.
 
-Když definuješ třídu (pomocí bloku `class`), neznamená to zatím, že ve tvém
+Když definuješ třídu (pomocí bloku `class`), neznamená to, že v tvém
 programu je nějaké koťátko.
-Třída je jako recept nebo manuál: když si koupíš kuchařku, budeš teoreticky
-vědět jak upéct dort, jak bude takový dort vypadat a že se dá sníst.
+Třída je jako recept nebo manuál: když si koupíš kuchařku, teoreticky víš
+jak upéct dort, jak bude takový dort vypadat a že se dá sníst.
 Ale neznamená to ještě, že máš samotný dort!
 
 Konkrétní objekt vytvoříš až zavoláním třídy.
@@ -352,6 +352,48 @@ mourek = Kotatko('Mourek')
 print(mourek)
 ```
 
+## Cvičení: Kočka
+
+Teď, když už umíš dělat koťátka, zkus vytvořit třídu pro kočku.
+
+- Kočka umí mňoukat metodou `zamnoukej`.
+- Kočka má na začátku (při vytvoření) 9 životů
+(nemůže mít nikdy víc než 9 nebo míň než 0!).
+- Kočka umí říct, jestli je živá (nemá 0 životů), metodou `je_ziva`.
+- Kočka může ztratit život metodou `uber_zivot`.
+- Kočku můžeš nakrmit metodou `snez`, která bere 1 argument -
+nějaké konkrétní jídlo (řetězec). Pokud je toto jídlo `"ryba"`, kočce se obnoví
+jeden život (pokud teda už není mrtvá, nebo nemá maximální počet životů).
+
+{% filter solution %}
+```python
+class Kocka:
+    def __init__(self):         # Init funkce nemusi brat jako parametr
+        self.pocet_zivotu = 9   # pocet zivotu, ten je pokazde 9.
+
+    def zamnoukej(self):
+        print("Mnau, mnau, mnauuu!")
+
+    def je_ziva(self):
+        return self.pocet_zivotu > 0
+
+    def uber_zivot(self):
+        if not self.je_ziva():
+            print("Nemuzes zabit uz mrtvou kocku!")
+        else:
+            self.pocet_zivotu -= 1
+
+    def snez(self, jidlo):
+        if not self.je_ziva():
+            print("Je zbytecne krmit mrtvou kocku!")
+            return
+        if jidlo == "ryba" and self.pocet_zivotu < 9:
+            self.pocet_zivotu += 1
+            print("Kocka spapala rybu a obnovil se ji jeden zivot.")
+        else:
+            print("Kocka se krmi.")
+```
+{% endfilter %}
 
 A to je o samotných třídách zatím vše.
 [Příště](../inheritance/) si něco řekneme o dědičnosti.
