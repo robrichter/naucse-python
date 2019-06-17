@@ -43,6 +43,7 @@ Dál pokračuj obecným [nastavením](#config) níže.
 
 Jdi na stránku [git-scm.org](https://git-scm.org), stáhni si
 Git a nainstaluj si ho.
+Při instalaci vyber tyto volby:
 
 Při instalaci se ujisti, že jsou vybrány tyto volby:
 
