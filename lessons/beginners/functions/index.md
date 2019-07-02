@@ -95,7 +95,7 @@ Jeho výsledek, takzvaná *návratová* hodnota
 > Máš-li rád{{a}} matematiku, dej pozor!
 > Funkce v Pythonu je něco jiného než funkce v matematice,
 > i když se stejně jmenují a podobně zapisují.
-> Pythonní funkce může např. mít pro stejný argument různé hodnoty.
+> Pythonní funkce může např. dávat pro jeden argument různé hodnoty.
 
 
 ### Volání funkce jako výraz
@@ -323,8 +323,7 @@ na nový řádek);
 `sep` zase, co se vypíše mezi jednotlivými argumenty (místo mezery).
 
 > [note]
-> Příklad opět doporučuji spustit ze souboru, ne
-> interaktivně:
+> Příklad opět spusť ze souboru, ne interaktivně:
 
 ```python
 print(1, "dvě", False)
@@ -339,6 +338,7 @@ a ten vrátí jako řetězec.
 ```python
 input('zadej vstup: ')
 ```
+
 
 ## Přehled funkcí
 
