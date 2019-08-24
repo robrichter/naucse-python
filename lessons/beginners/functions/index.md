@@ -332,8 +332,7 @@ print(2, 3, 4, sep=", ")
 ```
 
 Základní funkce na načtení vstupu, `input`,
-vypíše otázku, počká na text od uživatele
-a ten vrátí jako řetězec.
+vypíše otázku, počká na text od uživatele a ten vrátí jako řetězec.
 
 ```python
 input('zadej vstup: ')
