@@ -35,7 +35,7 @@ print(1, end=' ')
 print(2, 3, 4, sep=', ')
 ```
 
-Základní funkce pro načtení vstupu, `input`,
+Základní funkce na načtení vstupu, `input`,
 vypíše otázku, počká na text od uživatele a ten vrátí jako řetězec.
 
 ```python
