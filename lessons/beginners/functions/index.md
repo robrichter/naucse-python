@@ -313,32 +313,6 @@ print(len)          # Vypsání samotné funkce
 print(len + 1)      # Sečtení funkce a čísla
 ```
 
-
-### Vstup a výstup
-
-Tyhle funkce už známe.
-`print` vypíše nepojmenované argumenty, oddělené mezerou.
-Pojmenovaný argument `end` určuje, co se vypíše na konci (místo přechodu
-na nový řádek);
-`sep` zase, co se vypíše mezi jednotlivými argumenty (místo mezery).
-
-> [note]
-> Příklad opět spusť ze souboru, ne interaktivně:
-
-```python
-print(1, "dvě", False)
-print(1, end=" ")
-print(2, 3, 4, sep=", ")
-```
-
-Základní funkce na načtení vstupu, `input`,
-vypíše otázku, počká na text od uživatele a ten vrátí jako řetězec.
-
-```python
-input('zadej vstup: ')
-```
-
-
 ## Přehled funkcí
 
 A jaké funkce můžeš, kromě `len` a `print`, použít?
