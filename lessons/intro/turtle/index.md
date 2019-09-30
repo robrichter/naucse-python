@@ -384,6 +384,18 @@ Nakresli čtverec. To se dělá následovně:
 
 ![Želví čtverec](static/turtle-square.png)
 
+{% filter solution %}
+```python
+from turtle import forward, left, exitonclick
+
+for i in range(4):
+    forward(50)
+    left(90)
+
+exitonclick()
+```
+{% endfilter %}
+
 ## Dlouhá přerušovaná čára
 
 Už víš, že pomocí `penup` a `pendown` lze nakreslit přerušenou čáru:
