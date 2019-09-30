@@ -95,7 +95,7 @@ Jeho výsledek, takzvaná *návratová* hodnota
 > Máš-li rád{{a}} matematiku, dej pozor!
 > Funkce v Pythonu je něco jiného než funkce v matematice,
 > i když se stejně jmenují a podobně zapisují.
-> Pythonní funkce může např. dávat pro jeden argument různé hodnoty.
+> Pythonní funkce může např. mít pro stejný argument různé hodnoty.
 
 
 ### Volání funkce jako výraz
@@ -248,7 +248,7 @@ print("Jedna plus dva je", 1 + 2)
 
 Některé funkce nepotřebují žádný argument.
 Příkladem je zase `print`.
-Je ale nutné napsat závorky – i když jsou prázdné.
+Je ale nutné použít závorky – i když jsou prázdné.
 Hádej, co tohle volání udělá?
 
 ```python
