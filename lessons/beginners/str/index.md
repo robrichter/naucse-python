@@ -150,12 +150,12 @@ Vtom vnuk křik': "Hleď!"
 Ve výsledném řetězci pak ovšem žádné zpětné lomítko *není*.
 Sekvence `\'` je jen způsob, jak v Pythonu zadat `'` – jediný znak.
 Tomu je celkem důležité porozumět.
-Zkus si, jestli zvládneš předpovědět výsledek těchto výrazů:
+Zkus si, zvládneš jestli předpovědět výsledek těchto příkazů:
 
-```pycon
->>> print(".\".")
->>> len(".\".")
->>> ".\"."
+```python
+print(".\".")
+len(".\".")
+".\"."  # (v interaktivním režimu)
 ```
 
 {% filter solution %}
