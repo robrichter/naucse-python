@@ -294,7 +294,7 @@ Výsledek zjistíš snadno, zkus se ale zamyslet a Python použít jen pro ově�
 
 {# Highlighted as plain text to avoid spoilers #}
 ```plain
-{# 2, 3, 4, 5 #}
+{# 2, 3, 4, 5 -#}
 print(len('ahoj'))
 print(len("""Ahoj!"""))
 print(len('a b'))
