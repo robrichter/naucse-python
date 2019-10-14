@@ -183,7 +183,7 @@ a       b
 3
 ```
 
-Se zpětným lomítkem se dá zadat jakýkoli znak – včetně *emoji* – podle jména
+Se zpětným lomítkem můžeš zadat jakýkoli znak – včetně *emoji* – podle jména
 (`\N{…}`) nebo identifikačního čísla (`\x..`, `\u....`, `\U........`)
 standardu Unicode.
 Stačí přesné jméno nebo číslo znát (nebo třeba dohledat na internetu).
@@ -283,6 +283,10 @@ if cislo > 0:
 Víceřádkové řetězce se často používají jako dokumentační řetězce funkcí.
 U nich nevadí, že jsou na začátku řádků mezery.
 
+
+## Formátovací řetězce
+
+Tato sekce byla vyčleněna ven, viz [Formátovací řetězce](../fstring)
 
 ## Cvičení
 
