@@ -116,7 +116,7 @@ Aby se promítly, musíš Python zavřít a spustit znovu.
 (I proto je dobré pouštět programy ze souborů – při každém spuštění se
 znovu načte aktuální verze modulů.)
 
-Ale zpátky k olání `print`.
+Ale zpátky k volání `print`.
 Přijde ti trochu divné, že příkaz `import louka` něco vypíše na obrazovku?
 
 Když takhle modul při importu „dělá“ něco víc než jen nastavení proměnných
