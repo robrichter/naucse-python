@@ -139,7 +139,8 @@ prvkem se zapisují trochu divně a má to své důvody:
 může-li nastat situace, kdy takovou sekvenci budeš
 potřebovat, většinou je lepší sáhnout po seznamu.
 Například seznam hracích karet v ruce nebo
-seznam lidí aktuálně sledujících video může být občas prázdný.
+seznam lidí aktuálně přihlášených do soutěže
+může být občas prázdný.
 
 Seznamy i n-tice mají i technické limity:
 <var>n</var>-tice nejdou měnit a až se naučíš pracovat se slovníky,
