@@ -71,7 +71,7 @@ print(kamaradka)
 Proměnná `kamaradka` obsahuje řetězec `'Žaneta'` (který se už nedá změnit).
 Metoda `upper()` vytvoří a vrátí *nový* řetězec `'ŽANETA'`.
 Výsledná hodnota se ale v našem programu nevyužije – Python ji vypočítá,
-ale pak ji „zahodí“.
+ale pak na ni „zapomene“.
 
 Oprava je snadná: výsledek uložit do proměnné.
 Často budeš chtít takový výsledek uložit zpátky do původní proměnné:
@@ -80,7 +80,7 @@ Oprava je snadná: výsledek uložit do proměnné.
 kamaradka = kamaradka.upper()
 ```
 
-Tímto přiřazením Python „zahodí“ původní hodnotu,
+Tímto přiřazením Python „zapomene“ na původní hodnotu,
 a od tohoto příkazu dál bude proměnná `kamaradka` označovat nový řetězec.
 
 Podobně by se dala proměnná přenastavit na jakoukoli jinou hodnotu:
@@ -145,7 +145,7 @@ Všechny udělají změny přímo v daném seznamu a (kromě `pop`) vrací `Non
 * `insert()` přidá prvek na danou pozici,
 * `pop()` odebere *a vrátí* poslední prvek,
 * `remove()` odstraní první výskyt daného prvku,
-* `sort()` seznam seřadí (řetězce podle “abecedy”, čísla vzestupně),
+* `sort()` seznam seřadí (řetězce podle „abecedy“, čísla vzestupně),
 * `reverse()` obrátí pořadí prvků,
 * `clear()` odstraní všechny prvky.
 
@@ -190,7 +190,7 @@ to neprojeví.
 
 ### Měnění prvků
 
-Na rozdíl od řetězců (které se měnit nedají) můžeš u existujících seznamů
+Na rozdíl od řetězců (které se nedají měnit) můžeš u existujících seznamů
 nastavovat konkrétní prvky – a to tak, že do prvku přiřadíš jako by to byla
 proměnná:
 
@@ -229,7 +229,7 @@ Proto na to existuje zvláštní příkaz jménem `del`.
 Jak už jeho název (z angl. *delete*, smazat)
 napovídá, smaže, co mu přijde pod ruku – jednotlivé
 prvky seznamů, podseznamy, … a dokonce i proměnné!
-Zkus si:
+ Zkus si:
 
 ```python
 zviratka = ['pes', 'kočka', 'králík', 'had', 'ještěrka', 'andulka']
@@ -346,10 +346,11 @@ A dokonce i čísla – ta jako podmínka platí, pokud jsou nenulová.
 
 Tak jako funkce `int` převádí na
 celá čísla a `str` na řetězce,
-funkce `list` převádí na seznam.
+funkce `list` (angl. *seznam*) převádí na seznam.
 Jako argument jí můžeš předat jakoukoli hodnotu,
 kterou umí zpracovat příkaz `for`.
-Z řetězců udělá seznam znaků, z `range` udělá seznam čísel.
+Z řetězců udělá seznam znaků, z otevřeného souboru
+udělá seznam řádků, z `range` udělá seznam čísel.
 
 ```python
 abeceda = list('abcdefghijklmnopqrstuvwxyz')
@@ -453,7 +454,7 @@ třeba nám už známou `random.randrange`.
 Podívejme se na dvě další, které se hodí k seznamům.
 
 Funkce `shuffle` seznam „zamíchá” – všechny prvky náhodně popřehází.
-Seznam změní „na místě“ a nic nevrací (podobně jako metoda `sort`).
+Seznam změní „na místě“ a nic nevrací – podobně jako metoda `sort`.
 
 ```python
 import random
@@ -478,3 +479,4 @@ mozne_tahy = ['kámen', 'nůžky', 'papír']
 tah_pocitace = random.choice(mozne_tahy)
 print(tah_pocitace)
 ```
+
