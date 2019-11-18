@@ -271,7 +271,7 @@ for vec, barva in zip(veci, barvy):
 ```
 
 {% filter solution %}
-Výsledek `zip` skončí hned když „dojde“ nejkratší sekvence.
+Iterátor `zip` skončí hned když dojdou prvky nejkratší sekvence.
 {% endfilter %}
 
 Občas je potřeba projít všechny záznamy.
@@ -283,7 +283,7 @@ for vec, barva in zip_longest(veci, barvy, fillvalue='(nevím)'):
     print(f"{vec} je {barva}")
 ```
 
-Argument `fillvalue` říká, co se doplní za chybějící hodnoty.
+Pojmenovaný argument `fillvalue` říká, co se doplní za chybějící hodnoty.
 Když ho nezadáš, doplní se `None` („nic“, hodnota kterou např. vrací procedury).
 To se často používá, když je pro chybějící hodnoty potřeba nějaká
 složitější logika:
