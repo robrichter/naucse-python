@@ -249,6 +249,10 @@ Chcete-li ji použít (a tedy psát kód jen pro Python 3.7+), používejte pak 
 místo `ensure_future` funkci `create_task`, která vás lépe ochrání před
 těžko nalezitelnými chybami.
 
+
+Async funkce a Task
+-------------------
+
 Smyčka událostí provádí úlohy a asynchronní funkce.
 
 Asynchronní funkce se definují pomocí `async def` a umožňují použít příkaz
@@ -272,6 +276,87 @@ těla funkce:
 
 Naplánujeme-li provádění *coroutine* na smyčce událostí
 (např. pomocí `run_until_complete`), tělo funkce se začne vykonávat:
+
+```pycon
+>>> loop = asyncio.get_event_loop()
+>>> result = loop.run_until_complete(coroutine)
+Demo
+```
+
+V rámci jedné *coroutine* pak lze provedení jiné *coroutine* naplánovat
+a počkat na jejich skončení pomocí `await`.
+Jak `run_until_complete` tak `await` nám dají k dispozici návratovou hodnotu
+příslušné asynchronní funkce.
+
+```python
+import asyncio
+
+async def add(a, b):
+    await asyncio.sleep(1)  # schedule a "sleep" and wait for it to finish
+    return a + b
+
+async def demo():
+    coroutine = add(2, 3)
+    result = await coroutine  # schedule "add" and wait for it to finish
+    print('The result is:', result)
+
+loop = asyncio.get_event_loop()
+result = loop.run_until_complete(demo())
+loop.close()
+```
+
+Nevýhoda čistých *coroutines* spočívá v tom, že na každé zavolání
+takové funkce lze použít jen jeden `await`.
+Výsledek se nikam neukládá, jen se po skončení jednou předá.
+Druhý `await` pro stejné zavolání asynchronní funkce skončí s chybou.
+Zkuste si to – v kódu výše přidejte daší řádek s `await coroutine`:
+
+```python
+    print('The result is:', (await coroutine))
+```
+
+Tenhle problém můžeme vyřešit tak, že asynchronní funkci „zabalíme“
+jako úlohu, *Task*.
+V Pythonu 3.7 se Task tvoří pomocí `asyncio.create_task`;
+pro kompatibilitu se staršími verzemi ale použijeme ekvivalentní
+`asyncio.ensure_future`.
+Task se chová stejně jako *coroutine* – lze použít v `await` nebo
+`run_until_complete`, ale navíc:
+
+* výsledek je k dispozici kdykoli po ukončení funkce (např. pro druhý `await`) a
+* úloha se naplánuje hned po zavolání `ensure_future`.
+
+Druhou vlastnost je lepší ukázat na příkladu:
+
+```python
+import asyncio
+
+async def print_and_wait():
+    print('Async function starting')
+    await asyncio.sleep(0.5)
+    print('Async function done')
+    return 'result'
+
+async def demo_coro():
+    coroutine = print_and_wait()
+    await asyncio.sleep(1)
+    print('Awaiting coroutine')
+    print(await coroutine)     # schedule coroutine and wait for it to finish
+
+async def demo_task():
+    task = asyncio.ensure_future(print_and_wait())  # schedule the task
+    await asyncio.sleep(1)
+    print('Awaiting task')
+    print(await task)  # task is finished at this point; retreive its result
+
+
+loop = asyncio.get_event_loop()
+print('Coroutine:')
+result = loop.run_until_complete(demo_coro())
+print('Task:')
+result = loop.run_until_complete(demo_task())
+loop.close()
+```
 
 Futures
 -------
@@ -556,7 +641,6 @@ loop.run_until_complete(main('http://python.cz'))
 loop.close()
 ```
 
-
 A další
 -------
 
@@ -629,4 +713,3 @@ asyncio.ensure_future(update_time())
 
 loop.run_forever()
 ```
-
