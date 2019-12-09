@@ -260,7 +260,7 @@ for zviratko in zviratka:
     zviratko.snez('flákota')
 ```
 
-Jak tenhle příklad naznačuje, psát nadtřídy, ze kterých se dobře dědí,
+Jak tenhle příklad naznačuje, psát nadtřídy ze kterých se dobře dědí
 není jednoduché. Zvlášť to platí, kdyby se z nich mělo dědit v jiném
 programu, než kde je nadtřída.
 I z toho důvodu je dobré dědičnost používat hlavně v rámci svého kódu:
