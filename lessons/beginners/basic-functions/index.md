@@ -7,11 +7,11 @@ Tato kapitola ukazuje výběr z nástrojů, které jsou ti v Pythonu k dispozic
 Tvůj cíl není naučit se vše nazpaměť, ale mít přehled o tom, co je zhruba
 možné.
 Detaily můžeš vždycky dohledat – ať už na taháku (které jsou, na rozdíl od
-školy, vždycky povoleny!), v těchto matreriálech, nebo v oficiální
+školy, vždycky povoleny!), v těchto materiálech, nebo v oficiální
 dokumentaci či jinde na Internetu.
 
 Můžeš si stáhnout i
-<a href="https://github.com/encukou/cheatsheets/raw/master/basic-functions/basic-functions-cs.pdf">tahák</a>,
+<a href="https://github.com/pyvec/cheatsheets/raw/master/basic-functions/basic-functions-cs.pdf">tahák</a>,
 který se rozdává na srazech.
 Doporučuji mít ho ze začátku při ruce.
 Když narazíš na úkol, se kterým si nevíš rady, projdi si tahák a zamysli se,
@@ -22,7 +22,7 @@ která z funkcí by se dala použít.
 
 Tyhle funkce už známe.
 `print` vypíše nepojmenované argumenty, oddělené mezerou.
-Pojmenovaný argument `end` určuje co se vypíše na konci (místo přechodu
+Pojmenovaný argument `end` určuje, co se vypíše na konci (místo přechodu
 na nový řádek);
 `sep` udává co se vypíše mezi jednotlivými argumenty (místo mezery).
 
@@ -35,7 +35,7 @@ print(1, end=' ')
 print(2, 3, 4, sep=', ')
 ```
 
-Základní funkce na načtení vstupu, `input`,
+Základní funkce pro načtení vstupu, `input`,
 vypíše otázku, počká na text od uživatele a ten vrátí jako řetězec.
 
 ```python
