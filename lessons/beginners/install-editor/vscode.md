@@ -2,8 +2,8 @@
 {% extends lesson.slug + '/_base.md' %}
 
 {% block name_gen %}Instalace Visual Studio Code{% endblock %}
-{% block setup %}
 
+{% block install %}
 ## Stažení a instalace 
 
 Editor si můžeš stáhnout z jeho [domovské stránky](https://code.visualstudio.com/).
