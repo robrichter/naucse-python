@@ -374,9 +374,9 @@ počítá, jak už je daleko.
 
 ## Čtverec II
 
-A znovu ke kreslení, tentokrát s použitím cyklů!
+A teď znovu nakresli čtverec, tentokrát lépe – s použitím cyklu!
 
-Nakresli čtverec. To se dělá následovně:
+Čtverec se kreslí následovně:
 
 * Čtyřikrát:
   * Popojdi dopředu (a kresli přitom čáru)
@@ -458,30 +458,6 @@ exitonclick()
 ```
 {% endfilter %}
 
-
-## Čtverec II
-
-A teď znovu nakresli čtverec, tentokrát lépe – s použitím cyklu!
-
-Čtverec se kreslí následovně:
-
-* Čtyřikrát:
-  * Popojdi dopředu (a kresli přitom čáru)
-  * Otoč se o 90°
-
-![Želví čtverec](static/turtle-square.png)
-
-{% filter solution %}
-```python
-from turtle import forward, left, exitonclick
-
-for i in range(4):
-    forward(50)
-    left(90)
-
-exitonclick()
-```
-{% endfilter %}
 
 ### Tři čtverce
 
