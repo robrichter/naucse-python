@@ -34,7 +34,7 @@ for zviratko in zviratka:
 Seznamy se v programech vyskytují často:
 soubor se dá načíst jako seznam řetězců s jednotlivými řádky,
 seznam řetězců jako `'7♥'` a `'K♣'` může posloužit jako balíček karet,
-matematika je plná číselných řad, e-shopy pracují se seznamy zboží.
+matematika je plná číselných řad, každá online služba má seznam uživatelů.
 
 Hodnoty v seznamu můžou být jakéhokoli typu:
 
@@ -229,7 +229,7 @@ Proto na to existuje zvláštní příkaz jménem `del`.
 Jak už jeho název (z angl. *delete*, smazat)
 napovídá, smaže, co mu přijde pod ruku – jednotlivé
 prvky seznamů, podseznamy, … a dokonce i proměnné!
- Zkus si:
+Zkus si:
 
 ```python
 zviratka = ['pes', 'kočka', 'králík', 'had', 'ještěrka', 'andulka']
@@ -454,7 +454,7 @@ třeba nám už známou `random.randrange`.
 Podívejme se na dvě další, které se hodí k seznamům.
 
 Funkce `shuffle` seznam „zamíchá” – všechny prvky náhodně popřehází.
-Seznam změní „na místě“ a nic nevrací – podobně jako metoda `sort`.
+Seznam změní „na místě“ a nic nevrací (podobně jako metoda `sort`).
 
 ```python
 import random
