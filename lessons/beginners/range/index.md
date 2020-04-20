@@ -46,7 +46,7 @@ range(0, 10000)
 [0, 1, 2, 3, ..., 9999]
 ```
 
-Kdybys zkusil{{a}} třeba `list(range(1000000000000000))`, počítači
+Kdybys zkusil{{a}} třeba `list(range(1000000000000000000))`, počítači
 dojde paměť.
 Biliarda čísel se tam prostě nevejde.
 Python vyhodí výjimku  `MemoryError`.
@@ -128,4 +128,4 @@ Objekt `range` ale nejde měnit – mazání prvků nebo metody jako
 > hůř. Už to není jednoduchá sekvence čísel – už to není `range`, ale spíš
 > seznam jakýchkoli hodnot.
 
-Pokud budeš něco, co `range` neumí, potřebovat, převeď `range` na seznam.
+Pokud budeš něco co `range` neumí potřebovat, převeď `range` na seznam.
