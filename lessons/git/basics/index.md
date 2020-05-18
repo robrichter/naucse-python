@@ -315,6 +315,7 @@ A pro úplnost se znovu koukni, co říká
 revize.
 
 ```ansi
+␛[36m$␛[0m git status
 On branch master
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
