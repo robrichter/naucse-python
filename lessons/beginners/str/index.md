@@ -150,12 +150,12 @@ Vtom vnuk křik': "Hleď!"
 Ve výsledném řetězci pak ovšem žádné zpětné lomítko *není*.
 Sekvence `\'` je jen způsob, jak v Pythonu zadat `'` – jediný znak.
 Tomu je celkem důležité porozumět.
-Zkus si, zvládneš jestli předpovědět výsledek těchto příkazů:
+Zkus si, jestli zvládneš předpovědět výsledek těchto příkazů:
 
-```python
-print(".\".")
-len(".\".")
-".\"."  # (v interaktivním režimu)
+```pycon
+>>> print(".\".")
+>>> len(".\".")
+>>> ".\"."
 ```
 
 {% filter solution %}
@@ -204,8 +204,6 @@ pomlčkami `-`. Délka každého řetězce je tedy celkem 3:
 >>> print('-\U0001F0BD-')
 -🂽-
 ```
-
-Jména a čísla se dají dohledat na internetu.
 
 
 ### Zpětné lomítko
