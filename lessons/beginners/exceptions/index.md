@@ -80,8 +80,8 @@ A dokonce nám to dá vědět – chybou, kterou můžeš *zachytit*.
 >   s mezerou na začátku, např. s `' 3'`. Funkce `isnumeric` takový řetězec
 >   odmítne.
 >
-> Chceš-li se zeptat jestli funkce `int` umí daný řetězec převést na číslo,
-> nejlepší způsob jak to udělat je použít funkci `int`.
+> Chceš-li zjistit jestli funkce `int` umí daný řetězec převést na číslo,
+> nejlepší je použít přímo funkci `int`.
 
 
 ## Ošetření chyby
