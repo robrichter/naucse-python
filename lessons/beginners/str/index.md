@@ -283,6 +283,17 @@ if cislo > 0:
 Víceřádkové řetězce se často používají jako dokumentační řetězce funkcí.
 U nich nevadí, že jsou na začátku řádků mezery.
 
+```python
+cislo = 4
+
+if cislo > 0:
+    print("""
+        Výsledek porovnání:
+
+        Číslo je kladné.
+    """)
+```
+
 
 ## Cvičení
 
