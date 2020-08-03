@@ -71,7 +71,7 @@ print(kamaradka)
 Proměnná `kamaradka` obsahuje řetězec `'Žaneta'` (který se už nedá změnit).
 Metoda `upper()` vytvoří a vrátí *nový* řetězec `'ŽANETA'`.
 Výsledná hodnota se ale v našem programu nevyužije – Python ji vypočítá,
-ale pak na ni „zapomene“.
+ale pak ji „zapomene“.
 
 Oprava je snadná: výsledek si ulož do proměnné.
 Často budeš chtít takový výsledek uložit zpátky do původní proměnné:
@@ -80,7 +80,7 @@ Oprava je snadná: výsledek si ulož do proměnné.
 kamaradka = kamaradka.upper()
 ```
 
-Tímto přiřazením Python „zapomene“ na původní hodnotu,
+Tímto přiřazením Python „zapomene“ původní hodnotu,
 a od tohoto příkazu dál bude proměnná `kamaradka` označovat nový řetězec.
 
 Podobně by se dala proměnná přenastavit na jakoukoli jinou hodnotu:
@@ -190,7 +190,7 @@ to neprojeví.
 
 ### Měnění prvků
 
-Na rozdíl od řetězců (které se nedají měnit) můžeš u existujících seznamů
+Na rozdíl od řetězců (které se měnit nedají) můžeš u existujících seznamů
 nastavovat konkrétní prvky – a to tak, že do prvku přiřadíš jako by to byla
 proměnná:
 
