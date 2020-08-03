@@ -170,7 +170,7 @@ se koťátka chovají.
 je konkrétní objekt (angl. *instance*) té třídy:
 hodnota, která reprezentuje kotě.
 
-Když definuješ třídu (pomocí bloku `class`), neznamená to zatím, že v tvém
+Když definuješ třídu (pomocí bloku `class`), neznamená to zatím, že ve tvém
 programu je nějaké koťátko.
 Třída je jako recept nebo manuál: když si koupíš kuchařku, budeš teoreticky
 vědět jak upéct dort, jak bude takový dort vypadat a že se dá sníst.
