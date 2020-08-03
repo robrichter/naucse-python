@@ -466,4 +466,3 @@ Chceš-li si o licencích přečíst něco víc, odkážu tě na
 [choosealicense.com](http://choosealicense.com/),
 případně [creativecommons.org](http://creativecommons.org/choose/)
 a [opensource.org](https://opensource.org/licenses).
-
