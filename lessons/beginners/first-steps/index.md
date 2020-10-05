@@ -20,10 +20,19 @@ ale jsou psané v angličtině a pro trochu pokročilejší publikum.
 Třemi „zobáčky“ `>>>` pak Python poprosí o instrukce.
 Je to jako v příkazové řádce, ale místo příkazů jako `cd` a `mkdir` sem budeš psát příkazy Pythonu.
 
-Vyzkoušej si, že příkazy z příkazové řádky v Pythonu nefungují,
-ačkoli okýnko vypadá skoro stejně:
+Práci s příkazovým řádkem si můžeš představit jako telefonní konverzaci:
+nejdřív ses s počítačem bavil{{a}} pomocí příkazů jako `cd`.
+Příkaz `python` znamená „dej mi prosím k telefonu Python!“ – další „konverzace“
+bude s úplně jiným programem, i když okýnko s textem vypadá skoro stejně.
+
+Vyzkoušej si, že příkazy z příkazové řádky v Pythonu nefungují:
 
 ```pycon
+>>> cd adresar
+  File "<stdin>", line 1
+    cd adresar
+       ^
+SyntaxError: invalid syntax
 >>> whoami
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -34,6 +43,7 @@ Tohle je *chybová hláška*, která se objeví vždycky,
 když Python nebude spokojený.
 V průběhu kurzu jich uvidíš ještě spoustu,
 takže si ji dobře prohlédni, ať ji příště poznáš.
+
 
 ## První příkaz
 
@@ -79,13 +89,14 @@ Python používá desetinnou *tečku*, ukáže se tedy `2.5`:
 ```
 
 Z důvodů, do kterých teď nebudeme zabíhat, se při dělení desetinná tečka
-objeví, i když vyjde číslo celé:
+objeví i když vyjde číslo celé:
 ``` pycon
 >>> 4 / 2
 2.0
 ```
 
-Občas se hodí použít dělení se zbytkem, kdy výsledek zůstane jako celé číslo.
+Občas se hodí použít dělení se zbytkem.
+Výsledek tak zůstane jako celé číslo.
 Na to má Python operátory `//` (podíl) a `%` (zbytek):
 
 ``` pycon
@@ -107,19 +118,21 @@ Na to má Python operátory `//` (podíl) a `%` (zbytek):
 
 Pokud ses dostal{{a}} až sem, gratuluji!
 Python máš nejen nainstalovaný, ale taky ti funguje.
-Stačí ho už jen zavřít a pak opustit i samotnou příkazovou řádku.
-V Pythonu se to dělá pomocí `quit()`, s prázdnými závorkami na konci.
+Stačí ho už jen zavřít.
+To se dělá pomocí `quit()`, s prázdnými závorkami na konci.
 
 <div class="highlight"><pre>
 <span class="gp">&gt;&gt;&gt;</span> quit()
 <span class="gp">(venv)$</span>
 </pre></div>
 
+Tím ukončíš konverzaci s Pythonem a „zavoláš k telefonu“
+zpátky příkazovou řádku.
 Zobáčky `>>>` se změnily na výzvu
-příkazové řádky, která začíná `(venv)` a končí `$` nebo `>`.
-Teď fungují příkazy jako `whoami` a `cd`, ale příkazy Pythonu
-jako `1 + 2` fungovat nebudou, dokud Python opět nepustíš pomocí
-příkazu `python`.
+příkazové řádky (která začíná `(venv)` a končí `$` nebo `>`).
+Příkazy Pythonu, jako `1 + 2`, teď fungovat nebudou – dokud Python opět
+nepustíš pomocí příkazu `python`.
+Zato příkazům jako `whoami` a `cd` teď počítač rozumět bude.
 
 Ukončit virtuální prostředí můžeš příkazem `deactivate` –
 tentokrát bez závorek.
