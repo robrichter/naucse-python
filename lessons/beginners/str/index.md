@@ -324,7 +324,5 @@ if True:
 
 {# 7, 8, 9, more #}
 print(len('C:\new_dir'))
-
-print(len(f'{print}'))
 ```
 
