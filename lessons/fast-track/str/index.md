@@ -185,9 +185,9 @@ Zkus se zamyslet, jak Python zpracuje tyto výrazy:
 ```
 
 {% filter solution() %}
-`'Já jsem ' + 'Ola'.upper()` → `'Já jsem ' + 'OLA'` → `'Já jsem OLA'`
-
 `len('Ola') + 1` → `3 + 1` → `4`
+
+`'Já jsem ' + 'Ola'.upper()` → `'Já jsem ' + 'OLA'` → `'Já jsem OLA'`
 
 `len('Ola' * 3)` → `len('OlaOlaOla')` → `9`
 
@@ -197,7 +197,7 @@ Zkus se zamyslet, jak Python zpracuje tyto výrazy:
 
 Podobné skládání je v programování velice časté.
 Většinu základních stavebních bloků se začátečník naučí za pár
-týdnů – a pak po celou svou progrmátorskou kariéru objevuje nové způsoby,
+týdnů či měsíců – a pak po celou svou progrmátorskou kariéru objevuje nové způsoby,
 jak je poskládat do složitějších a složitějších konstrukcí.
 
 ### Shrnutí

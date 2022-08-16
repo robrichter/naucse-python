@@ -45,7 +45,7 @@ Operátor pro dělení je `/`.
 Při dělení může vzniknout necelé číslo, třeba dva a půl.
 Python používá desetinnou *tečku*, ukáže se tedy `2.5`:
 
-``` python
+``` pycon
 >>> 5 / 2
 2.5
 ```
@@ -80,7 +80,7 @@ Někdy se stane, že zadáš něco špatně – tak, že tomu Python nebude rozu
 Třeba když omylem použiješ neexistující operátor `%%`, dostaneš
 jako odpověď *chybovou hlášku*:
 
-```python
+```pycon
 >>> 5 %% 2
   File "<stdin>", line 1
     5 %% 2
