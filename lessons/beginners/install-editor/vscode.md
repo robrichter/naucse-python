@@ -24,8 +24,9 @@ Viz též [původni postup v angličtině](https://code.visualstudio.com/docs/s
 
 [privacy]: https://privacy.microsoft.com/en-us/privacystatement
 
+{% endblock %}
+{% block setup %}
 
-## A to je vše!
 Vše ostatní je již nainstalováno. Teď se jen pusť do samotného programování!
 
 {% endblock %}
