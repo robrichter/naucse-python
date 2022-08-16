@@ -26,8 +26,22 @@ a obsah jako <var>S</var> = <var>a</var>².
 > na základy programování si vystačíme s matematickými
 > znalostmi ze základní školy.
 
+Pro připomenutí, obvod čtverce se stranou <var>a</var>
+se dá vypočítat jako <var>O</var> = 4<var>a</var>
+a obsah jako <var>S</var> = <var>a</var>².
+Řekněme, že náš čtverec má stranu <var>a</var> = 356 cm.
+
+
+Výsledky vypiš pomocí `print()`.
+Po spuštění by měl program vypsat neco jako:
+
+```
+Obvod čtverce se stranou 356 cm je 1424 cm
+Obsah čtverce se stranou 356 cm je 126736 cm2
+```
+
 Výsledky by měl spočítat Python; číslo 1424 nebo 126736 přímo do programu nepiš.<br>
-Jestli si nevíš rady, podívej se na program <code>printing.py</code>
+Jestli si nevíš rady, podívej se na program <code>ahoj.py</code>
 z [lekce o `print`]({{ lesson_url('beginners/print') }}), kde jeden řádek dělá něco podobného.
 
 Až budeš mít program hotový, nebo až budeš chtít vyzkoušet rozepsaný kousek,
@@ -38,7 +52,7 @@ spusť ho:
 * zadej `python ctverec.py`.
 
 Funguje? Jestli ne, oprav ho a zkus to znovu!
-Když už jsi v příkazové řádce ve správném adresáři, spuštění znamená zadat
+Když už jsi v příkazové řádce ve správném adresáři, spuštění znamená zadat
 znovu příkaz `python ctverec.py`.
 Abys to nemusel{{a}} celé psát, můžeš se k předchozímu příkazu vrátit
 pomocí šipky nahoru, <kbd>↑</kbd>.
@@ -74,7 +88,7 @@ Kdyby byl program delší (několikastránkový),
 jak bys zajistil{{a}}, že jedno z těch čísel nepřehlédneš?
 
 Existuje způsob, jak program napsat,
-aniž bys musela pokaždé přepisovat všechna čísla:
+aniž bys musel{{a}} pokaždé přepisovat všechna čísla:
 stranu čtverce si „pojmenuješ“ a potom používáš jenom její jméno.
 V Pythonu na pojmenovávání hodnot slouží *proměnné* (angl. *variables*).
 Používají se takto:
@@ -191,7 +205,7 @@ pro teď to budou kouzelná zaříkadla.
   promenna = float(input('Zadej číslo: '))
   ```
 
-Místo textu `'Zadej …'` se dá napsat i jiná výzva. 
+Místo textu `'Zadej …'` se dá napsat i jiná výzva.
 A výsledek se samozřejmě dá uložit i do jiné proměnné než `promenna`.
 
 Hotový program může vypadat takto:

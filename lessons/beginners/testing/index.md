@@ -2,7 +2,7 @@
 
 Programátorská práce nespočívá jen v tom, program napsat.
 Důležité je si i ověřit, že opravdu funguje, a případně ho pak opravit.
-Ověřování, že program funguje, se říká *testování* (angl. *testing*).
+Tomu ověřování že program funguje se říká *testování* (angl. *testing*).
 
 Zatím jsi asi svoje programy testoval{{a}} tak, že jsi
 je zkusil{{a}} spustit, něco zadal{{a}} a podíval{{a}} se,
@@ -18,7 +18,7 @@ Píšou jiné programy, které jejich výtvory testují za ně.
 zkontrolují, že program funguje správně.
 Spuštěním testů můžeš kdykoli ověřit, že kód funguje.
 Když v otestovaném kódu v budoucnu uděláš nějakou změnu,
-testy ověří, že jsi nerozbil{{a}} nic, co dříve fungovalo.
+testy ověří, že jsi nerozbil{{a}} nic co dříve fungovalo.
 
 
 ## Instalace knihovny pytest
@@ -38,17 +38,24 @@ Knihovny se instalují do aktivního virtuálního prostředí.
 Jak se dělá a spouští virtuální prostředí
 ses naučil{{a}} při [instalaci Pythonu]({{ lesson_url('beginners/install') }}),
 ale teprve teď to začíná být opravdu důležité.
-Ujisti se, že máš virtuální prostředí aktivované.
+Ujisti se, že máš virtuální prostředí aktivované – na začátku příkazové řádky
+máš `(venv)`.
 
 Potom zadej následující příkaz.
 (Je to příkaz příkazové řádky, podobně jako
 `cd` nebo `mkdir`; nezadávej ho do Pythonu.)
 
 > [warning] Opisuj opatrně!
-> Příkaz níže instaluje software z Internetu.
+> Příkaz níže instaluje software z internetu.
+> Nahrát takovou knihovnu na internet může kdokoli – hodný nebo zlý,
+> chytrý nebo hloupý.
 > Za knihovnu `pytest` autoři tohoto kurzu ručí.
-> Jiné knihovny ale můžou dělat neplechu nebo být dokonce „zavirované“.
+> Jiné knihovny ale můžou dělat neplechu nebo být dokonce „zavirované“;
+> už při instalaci můžou něco pokazit.
 > Dej si proto pozor a ve jménu `pytest` neudělej překlep!
+>
+> Nainstaluješ-li přesto omylem něco cos nechtěl{{a}}, dej co nejdřív vědět
+> zkušenějšímu programátorovi, aby zkontroloval jaký to mohlo mít efekt.
 
 ```console
 (venv)$ python -m pip install pytest
@@ -79,22 +86,21 @@ Potom zadej následující příkaz.
 
 Nejdříve si testování ukážeme na jednoduchém příkladu.
 Tady je funkce `secti`, která umí sečíst
-dvě čísla, a další funkce, která testuje, jestli se
-`secti` pro určité hodnoty
-chová správně.
+dvě čísla, a další funkce, která testuje jestli se
+`secti` pro určité hodnoty chová správně.
 
-Kód si opiš do souboru `test_secteni.py`,
-v novém prázdném adresáři.
-Pro `pytest` je (ve výchozím nastavení)
-důležité, aby jména jak souborů s testy, tak
-samotných testovacích funkcí, začínala na
+Kód si opiš do souboru `test_secteni.py` v novém prázdném adresáři.
+Jméno je důležité: `pytest` ve výchozím nastavení předpokládá,
+že jména jak souborů s testy tak samotných testovacích funkcí začínají na
 `test_`.
 
 ```python
 def secti(a, b):
+    """Vrátí součet dvou čísel"""
     return a + b
 
 def test_secti():
+    """Otestuje funkci secti"""
     assert secti(1, 2) == 3
 ```
 

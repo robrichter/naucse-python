@@ -25,7 +25,7 @@ forward(50)
 ```
 
 Ukáže se okýnko se šipkou, které nezavírej.
-Dej ho tak, abys viděla i příkazovou řádku
+Dej ho tak, abys viděl{{a}} i příkazovou řádku
 i nové okýnko.
 
 ## A kde je ta želva?
@@ -211,6 +211,7 @@ Tolik kódu! Tohle musí jít nějak zjednodušit!
 Jde.
 Pojďme se naučit, jak v Pythonu nějakou činnost opakovat.
 
+## Opakování
 
 ## Jak opakovat – a neopakovat *se*
 
@@ -246,7 +247,7 @@ Zkus napsat ještě jeden vzorový program, který v češtině zní:
 * Pro každý <var>pozdrav</var> z výčtu: „Ahoj“, “Hello”, “Hola”, ”Hei”, "SYN":
   * Vypiš <var>pozdrav</var> a za ním vykřičník.
 
-A v Pythonu:
+V Pythonu se tento program zapíše jako:
 
 ```python
 for pozdrav in 'Ahoj', 'Hello', 'Hola', 'Hei', 'SYN':
@@ -352,7 +353,7 @@ for i in range(100):
 * Zopakuj 100krát:
   * Vypiš `'Nikdy nebudu odsazovat o tři mezery!'`
 
-Python píše hlášky, jednu za druhou, a u toho si v promněnné <var>i</var>
+Python píše hlášky, jednu za druhou, a u toho si v proměnné <var>i</var>
 počítá, jak už je daleko.
 
 > [style-note]
@@ -372,9 +373,53 @@ počítá, jak už je daleko.
 >    print('Nikdy nebudu odsazovat o tři mezery!')
 > ```
 
+## Čtverec II
+
+A teď znovu nakresli čtverec, tentokrát lépe – s použitím cyklu!
+
+Čtverec se kreslí následovně:
+
+* Čtyřikrát:
+  * Popojdi dopředu (a kresli přitom čáru)
+  * Otoč se o 90°
+
+![Želví čtverec](static/turtle-square.png)
+
+{% filter solution %}
+```python
+from turtle import forward, left, exitonclick
+
+for i in range(4):
+    forward(50)
+    left(90)
+
+exitonclick()
+```
+{% endfilter %}
+
 ## Dlouhá přerušovaná čára
 
 Už víš, že pomocí `penup` a `pendown` lze nakreslit přerušenou čáru:
+
+```python
+from turtle import forward, penup, pendown, exitonclick
+
+forward(30)
+penup()         # od teď želva nekreslí
+forward(5)
+pendown()       # od teď želva zase kreslí
+forward(30)
+
+exitonclick()
+```
+{% endfilter %}
+
+## Přerušovaná čára
+
+Funkce `penup` a `pendown`
+z modulu `turtle` řeknou želvě,
+aby přestala, resp. začala kreslit.
+Zkus si to:
 
 ```python
 from turtle import forward, penup, pendown, exitonclick
@@ -406,7 +451,6 @@ exitonclick()
 ```
 {% endfilter %}
 
-
 Pak zkus zařídit, aby jednotlivé čárky byly postupně
 větší a větší.
 
@@ -435,30 +479,6 @@ exitonclick()
 ```
 {% endfilter %}
 
-
-## Čtverec II
-
-A teď znovu nakresli čtverec, tentokrát lépe – s použitím cyklu!
-
-Čtverec se kreslí následovně:
-
-* Čtyřikrát:
-  * Popojdi dopředu (a kresli přitom čáru)
-  * Otoč se o 90°
-
-![Želví čtverec](static/turtle-square.png)
-
-{% filter solution %}
-```python
-from turtle import forward, left, exitonclick
-
-for i in range(4):
-    forward(50)
-    left(90)
-
-exitonclick()
-```
-{% endfilter %}
 
 ### Tři čtverce
 

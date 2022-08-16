@@ -1,7 +1,7 @@
 # Nakresli mi hada
 
-Většina videoher má vlastní svět – spoustu čísel, textů, seznamů a jiných
-datových objektů, které popisují všechno, co ve hře je – celý *stav* hry.
+Většina videoher má celý herní svět uložený jako spoustu čísel, textů, seznamů
+a jiných datových objektů, které popisují všechno, co ve hře je.
 Tenhle stav se časem mění, ať už automaticky nebo podle akcí hráče.
 A docela často – většinou zhruba šedesátkrát za vteřinu – se stav hry převede
 na obrázek, který se hráčovi ukáže.
@@ -14,7 +14,7 @@ musí o hře „pamatovat“, aby mohl aktuální stav zobrazit?
 
 Bude potřebovat například aktuální polohu všech částí hada: kde má začátek?
 Kroutí se doprava nebo doleva? Jak je dlouhý?
-Naopak barvu hada se stavu ukložit nepotřebuješ – každý had v téhle hře bude
+Naopak barvu hada ve stavu uložit nepotřebuješ – každý had v téhle hře bude
 stejný.
 
 Napadne tě, jak polohu hada zapsat pomocí čísel, seznamů a dalších základních
@@ -35,7 +35,7 @@ Každý bod v rovině (třeba na obrazovce!)
 je možné popsat dvěmi čísly: <var>x</var>-ovou a <var>y</var>-ovou souřadnicí.
 Ta <var>x</var>-ová říká, jak moc vlevo je bod od nějakého počátku,
 ta <var>y</var>-ová udává jak moc je nahoře.
-My za onen „počátek“ zvolíme roh okýnka, ve kterém se bude plazit náš had.
+My za onen „počátek“ zvolíme roh okýnka, ve kterém se bude náš had plazit.
 
 Na rozdíl od školní geometrie se had bude plazit po čtverečkové mřížce.
 Je to jako na šachovnici – když jde pěšec na D5, D značí, jak moc je to
@@ -61,14 +61,82 @@ seznam souřadnic bude seznam dvojic čísel.
 Had z obrázku výše bude v Pythonu vypadat takto:
 
 ```python
-snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+had = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
 ```
 
 Tohle je reprezentace hada – to, co je z hlediska hry potřeba o konkrétním
 hadovi vědět.
 
 Počítačům (a programátorům?) to takhle stačí.
-My si to ale zkusme zobrazit barevně, ať hadovi rozumí i hráč naší budoucí hry.
+My si to ale zkusme zobrazit barevně, jako obrázek, ať hadovi rozumí
+i hráč naší budoucí hry.
+Ale předtím trochu štábní kultury.
+
+## Profi software
+
+Teď, když začínáš psát profesionální software, přijdou dvě změny oproti
+tomu, jak jsi programy psal{{a}} v rozcvičce.
+
+První změna bude angličtina. Pro jména proměnných, funkcí a podobně
+se skoro vždy používá univerzálnější jazyk než je čeština, aby se pak do
+projektu mohl zapojit kdokoli z celého světa.
+Proměnná s hadem proto ponese jméno `snake`:
+
+```python
+snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+```
+
+Komentáře budu pro přehlednost psát dál v češtině.
+Umíš-li anglicky dobře, přelož si do angličtiny i ty!
+
+Druhou změnou bude použití vlastní třídy.
+To v tenhle moment příliš nedává smysl: hadí hra by se dala začít psát
+jen se zabudovanými třídami (seznamy, čísly atd.), ale až se dostaneme trochu
+dál, zjistl{{a}} bys, že se třídou bude všechno jednodušší.
+V reálném projektu bys pak třídu zavedla: provedl{{a}} bys *refactoring*,
+vylepšení struktury projektu bez změny funkčnosti.
+
+Takové přepsání existujícího projektu je ovšem docela náchylné na chyby,
+zvlášť pokud programu nerozumíš na sto procent.
+Pro tenhle hadí projekt proto trošku zašvindlujeme a využijeme toho,
+že autor tohohle textu ví jak ten příběh skončí.
+Se třídou to nakonec bude jednodušší, věř mi.
+
+Třída se bude jmenovat ``GameState`` (stav hry) a bude obsahovat
+stav hry a metody pro funkčnost okolo.
+První metoda se bude jmenovat `initialize` a nastaví úvodní stav hry – tedy
+pozici hada.
+
+```python
+class GameState:
+    def initialize(self):
+        self.snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+
+# Vytvoření konkrétního objektu
+state = GameState()
+state.initialize()
+
+# Teď můžeš se stavem hry pracovat -- například vypsat seznam souřadnic hada
+print(state.snake)
+```
+
+Všimni si, že v rámci třídy je používá `self`, ale venku `state`.
+Mělo by to tak být i ve zbytku programu, který napíšeš.
+Podobně jsi v třídě `Kotatko` používal{{a}} `self`, ale venku `mourek`
+nebo `micka`.
+
+V editoru si otevři nový soubor, ulož ho jako `had.py` a napiš do něj
+tuhle kostru programu.
+Budeme ji dál rozvíjet.
+
+Program spusť (`cd` do adresáře s programem; `python had.py`). Funguje?
+(Je docela důležité, aby fungoval – nevidíš-li výpis seznamu,
+nečti dál a program radši oprav.)
+
+> [note]
+> Použij prosím pro třídu opravdu jméno `GameState` a atribut `snake` (a
+> později i další) pojmenuj podle materiálů.
+> Bude se ti to hodit.
 
 
 ## Logické a zobrazovací souřadnice
@@ -98,11 +166,7 @@ se souřadnicemi (10, 20).
 ## Sázení čtverečku
 
 Na to, abychom hada vykreslili, použijeme okýnko z Pygletu.
-Tady je základní kostra programu Pyglet, které už bys měl{{a}} rozumět.
-
-Udělej si nový, prázdný adresář na hadí hru, a kostru si
-zkopíruj do souboru `ui.py`.
-Budeme ji dál rozvíjet.
+Tady je základní kostra Pygletí aplikace, které už bys měl{{a}} rozumět:
 
 ```python
 import pyglet
@@ -116,34 +180,58 @@ def on_draw():
 pyglet.app.run()
 ```
 
+Kostru Pygletí aplikace připiš do svého programu.
+Řádek s importem patří podle konvencí úplně na začátek; zbytek připiš dej
+*za* svůj odsavadní kód.
+
+```python
+import pyglet
+
+class GameState:
+    def initialize(self):
+        self.snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+
+state = GameState()
+state.initialize()
+
+window = pyglet.window.Window()
+
+@window.event
+def on_draw():
+    window.clear()
+
+pyglet.app.run()
+```
+
+
 <img src="{{ static('green.png') }}" alt="" style="display:block; float:right; margin: 2px; border: 1px solid #ccc; border-radius: 1px;">
 Stáhni si soubor [green.png]({{ static('green.png') }}) – zelený čtvereček –
 a dej ho do adresáře, kam píšeš kód.
 
-Pod `import pyglet` přidej řádek, který tento obrázek načte.
+Před `window = ...` přidej řádek, který tento obrázek načte.
 
 ```python
 green_image = pyglet.image.load('green.png')
 ```
 
 Potom zkus dovnitř do funkce `on_draw` přidat vykreslení obrázku na souřadnice
-(40, 50), velikosti 10.
+(40, 50) s velikostí 10.
 
 ```python
     green_image.blit(40, 50, width=10, height=10)
 ```
 
-Program spusť (`cd` do nového adresáře; `python ui.py`). Funguje?
-(Je docela důležité, aby fungoval – nevidíš-li zelený čtvereček,
+Program spusť (`cd` do adresáře s programem; `python had.py`). Funguje?
+(Je opět důležité, aby fungoval – nevidíš-li zelený čtvereček,
 nečti dál a program radši oprav.)
 
 Jak vidíš, čtvereček je docela malý.
 Budeme radši používat čtverečky větší, řekněme 64 pixelů.
 
 To číslo je „střelené od boku“.
-V programu ho použijeme několikrát, a možná ho později budeš chtít upravit.
-Uložíme si ho proto do *konstanty* – proměnné, kterou nebudeme měnit.
-Konstanty se tradičně pojmenovávají velkými písmeny, a píšou se hned za řádek
+V programu ho použijeme několikrát a možná ho později budeš chtít upravit.
+Uložíme si ho proto do *konstanty* (proměnné, kterou nebudeme měnit).
+Konstanty se tradičně pojmenovávají velkými písmeny a píšou se hned za řádek
 `import` (i když to není technicky nutné).
 Přidej tedy za `import` řádek:
 
@@ -158,7 +246,10 @@ TILE_SIZE = 64
                      width=TILE_SIZE, height=TILE_SIZE)
 ```
 
-Povedlo se? Máš čtvereček?
+Kód je teď trochu delší, ale až budeš chtít velikost čtverečku změnit,
+stačí to udělat na jednom místě.
+
+Povedlo se? Máš větší čtvereček?
 Jestli ne, zkus si program celý, řádek po řádce, projít a zkontrolovat.
 Nebo ho porovnej se vzorovým řešením (což je rychlejší varianta, ale míň
 se naučíš).
@@ -168,6 +259,14 @@ se naučíš).
 import pyglet
 
 TILE_SIZE = 64
+
+class GameState:
+    def initialize(self):
+        self.snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+
+state = GameState()
+state.initialize()
+
 green_image = pyglet.image.load('green.png')
 
 window = pyglet.window.Window()
@@ -185,33 +284,53 @@ pyglet.app.run()
 
 ## Sázení hada
 
-Zkus teď na začátek programu – těsně pod `import` a konstantu – přidat
-definici hada:
+Nechceme ale zobrazovat čtvereček, ale hada.
+Vlastně budeme chtít zobrazit celý stav hry – had bude jen ta nejdůležitější
+část.
+Udělej si proto ve třídě `GameState` novou metodu `draw` a vykreslení čtverečku
+(volání `green_image.blit`) zatím dej do ní.
 
 ```python
-snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+...
+class GameState:
+    def initialize(self):
+        self.snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+
+    def draw(self):
+        green_image.blit(4 * TILE_SIZE, 5 * TILE_SIZE,
+                         width=TILE_SIZE, height=TILE_SIZE)
+...
+@window.event
+def on_draw():
+    window.clear()
+    state.draw()
 ```
 
-A ve funkci `draw` vykresli všechny čtverečky hada.
+Změněný program by měl dělat to samé co předtím: vyktreslit čtvereček.
+Teď se ale kreslí v metodě `draw`, která má lepší přístup k souřadnicím hada.
+Zkus ho vykreslit!
+
 Vzpomeň si, že seznam dvojic můžeš „projít“ pomocí cyklu `for` a „rozbalení“
 <var>n</var>-tice:
 
 ```python
-for x, y in snake:
-    ...
+    def draw(self):
+        for x, y in self.snake:
+            ...
+            # (Sem dej kód na vykreslení čtverečku se souřadnicemi x, y)
 ```
 
-Funguje to? Vidíš v tom – aspoň zhruba – hada
-(i když je poskládaný ze čtverečků)?
+Zvládneš to?
+Ve výsledku by měl být vidět – aspoň zhruba – had poskládaný ze čtverečků.
 
 {{ figure(
     img=static('coords-blocks.svg'),
     alt="Had na „šachovnici“ a ukázka programu",
 ) }}
 
-Jestli ne, nezoufej, zkontroluj si to znovu, poptej se na radu.
-Řešení využij až jako krajní možnost, jak pokračovat dál – nebo na kontrolu
-správného řešení.
+Jestli to nefunguje, nezoufej, zkontroluj si to znovu, poptej se na radu.
+Ukázkové řešení využij až jako krajní možnost, jak pokračovat dál.
+Anebo pro kontrolu!
 
 {% filter solution %}
 ```python
@@ -219,7 +338,17 @@ import pyglet
 
 TILE_SIZE = 64
 
-snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+class GameState:
+    def initialize(self):
+        self.snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+
+    def draw(self):
+        for x, y in self.snake:
+            green_image.blit(x * TILE_SIZE, y * TILE_SIZE,
+                             width=TILE_SIZE, height=TILE_SIZE)
+
+state = GameState()
+state.initialize()
 
 green_image = pyglet.image.load('green.png')
 
@@ -228,9 +357,7 @@ window = pyglet.window.Window()
 @window.event
 def on_draw():
     window.clear()
-    for x, y in snake:
-        green_image.blit(x * TILE_SIZE, y * TILE_SIZE,
-                        width=TILE_SIZE, height=TILE_SIZE)
+    state.draw()
 
 pyglet.app.run()
 ```
@@ -239,16 +366,24 @@ pyglet.app.run()
 
 ## Krmení
 
-<img src="{{ static('red.png') }}" alt="" style="display:block; float:right; margin: 2px; border: 1px solid #ccc; border-radius: 1px;">
 <img src="{{ static('apple.png') }}" alt="" style="display:block; float:right; margin: 2px; border: 1px solid #ccc; border-radius: 1px;">
 Aby bylo ve hře co dělat, budeme potřebovat pro hada krmení.
-Stáhni si do adresáře s projektem obrázek `apple.png` (ať už jednoduchý
-čtvereček nebo detailnější obrázek), a zkus vykreslit jídlo třeba
-na následující souřadnice:
+Stáhni si do adresáře s projektem obrázek
+[apple.png]({{ static('apple.png') }}) a do metody `initialize`
+přidej souřadnice pro jídlo:
 
 ```python
-food = [(2, 0), (5, 1), (1, 4)]
+        self.food = [(2, 0), (5, 1), (1, 4)]
 ```
+
+Pak zkus v metodě `draw` na tyhle souřadnice vykreslit jablíčka.
+
+Budeš na to potřebovat několik věcí:
+* načíst obrázek `apple_image` podobně jako načítáš zelený čtvereček – 
+  nastavuješ proměnnou `green_image` a
+* několikrát vykreslit obrázek `apple_image` podobně jako vykresluješ
+  zalená čtverečky – voláním `green_image.blit` v cyklu
+
 
 {% filter solution %}
 ```python
@@ -256,10 +391,23 @@ import pyglet
 
 TILE_SIZE = 64
 
-snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
-food = [(2, 0), (5, 1), (1, 4)]
+class GameState:
+    def initialize(self):
+        self.snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+        self.food = [(2, 0), (5, 1), (1, 4)]
 
-red_image = pyglet.image.load('apple.png')
+    def draw(self):
+        for x, y in self.snake:
+            green_image.blit(x * TILE_SIZE, y * TILE_SIZE,
+                             width=TILE_SIZE, height=TILE_SIZE)
+        for x, y in self.food:
+            apple_image.blit(x * TILE_SIZE, y * TILE_SIZE,
+                             width=TILE_SIZE, height=TILE_SIZE)
+
+state = GameState()
+state.initialize()
+
+apple_image = pyglet.image.load('apple.png')
 green_image = pyglet.image.load('green.png')
 
 window = pyglet.window.Window()
@@ -267,23 +415,18 @@ window = pyglet.window.Window()
 @window.event
 def on_draw():
     window.clear()
-    for x, y in snake:
-        green_image.blit(x * TILE_SIZE, y * TILE_SIZE,
-                        width=TILE_SIZE, height=TILE_SIZE)
-    for x, y in food:
-        red_image.blit(x * TILE_SIZE, y * TILE_SIZE,
-                        width=TILE_SIZE, height=TILE_SIZE)
+    state.draw()
 
 pyglet.app.run()
 ```
 {% endfilter %}
 
-Používáš-li detailnější obrázek, možná si všimneš, že má trošičku „zubaté“ hrany.
-To je dáno způsobem, jakým v Pygletu obrázek vykreslujeme.
-Úplné vysvětlení by zabralo příliš času, proto ukážu jen řešení.
-Až se naučíš grafiku víc do hloubky, pochopíš co se tu děje :)
-
-Do funkce `on_draw`, hned za `clear`, dej následující dva řádky:
+Možná si všimneš, že obrázek má ve hře trošičku „zubaté“ hrany.
+To je dáno způsobem, jakým v Pygletu vykreslujeme.
+Úplné vysvětlení by se do tohoto návodu nevešlo, potřebuje trochu hlubší
+znalosti počítačové grafiky.
+Proto uvedu jen řešení.
+Do funkce `on_draw`, hned za `clear`, dej následující tři řádky:
 
 ```python
     # Lepší vykreslování (pro nás zatím kouzelné zaříkadlo)
@@ -310,7 +453,8 @@ V archivuje spousta „kousků“ hada, které můžeme vykreslovat místo zele
 Kousky vypadají následovně.
 Všimni si pojmenování – každý kousek hada buď spojuje dvě strany obrázku,
 nebo stranu obrázku s hlavou či ocasem.
-Obrázek se jmenuje <var>odkud</var>-<var>kam</var>.png.
+Podle toho, odkud kam se had na daném políčku plazí, se obrázek se jmenuje 
+<code><var>odkud</var>-<var>kam</var>.png</code>.
 
 {{ figure(
     img=static('snake-tiles.png'),
@@ -319,11 +463,11 @@ Obrázek se jmenuje <var>odkud</var>-<var>kam</var>.png.
 
 > [note]
 > Co jsou taková ta divná „hadí vajíčka”?
-> To je pro přímad, že by had byl jen jedno políčko dlouhý – a tedy měl hlavu
+> <img src="{{ static('snake-tiles/end-end.png') }}" alt="" style="display:block; float:left; margin: 2px; border: 1px solid #ccc; border-radius: 1px;">
+> To je pro případ, že by had byl jen jedno políčko dlouhý – a tedy měl hlavu
 > i ocas na stejném políčku.
-> V naší hře se do takového stavu nedostaneme (had bude začínat s délkou 2),
-> ale může se stát, že se do něj dostaneš omylem při vývoji hry.
-> Když jsou obrázky k dispozici, lépe pak zjišťuješ, co je špatně.
+> V dodělané hře se do takového stavu nedostaneme (had bude začínat s délkou 2),
+> ale než hru dokončíme, budou tyhle obrázky užitečné.
 
 Pojďme si teď tyhle obrázky *načíst*.
 Šlo by to dělat postupně, třeba takhle:
@@ -338,76 +482,49 @@ bottom_top = pyglet.image.load('snake-tiles/bottom-top.png')
 Ale obrázků je spousta, tímhle způsobem by to bylo zdlouhavé a nejspíš bys
 na některý zapomněl{{a}}.
 
-Proto Pythonu řekneme, aby nám dal všechny soubory s koncovkou `.png` v daném
-adresáři.
-Na to se dá použít třída `Path` z modulu [`pathlib`](https://docs.python.org/3/library/pathlib.html).
-Zkus si napsat (do nového souboru, třeba `experiment.py`) tento kód
-a spustit ho.
-Dokážeš vysvětlit, co dělá?
+Proto si obrázky načteme automaticky, v cyklu, a dáme je do slovníku.
+
+Program bude vypadat takhle:
+
+* Začni s prázdným slovníkem.
+* Pro každý *začátek* (`bottom`, `end`, `left`, `right`, `top`):
+  * Pro každý *konec* (`bottom`, `end`, `left`, `right`, `top`, `dead`, `tongue`):
+    * Budeme načítat obrázek „<var>začátek</var>-<var>konec</var>“; tento
+      <var>klíč</var> si dej do proměnné
+    * Načti obrázek <var>klíč</var>.png
+    * Ulož obrázek do slovníku pod <var>klíč</var>.
+
+Neboli, přeloženo do Pythonu:
 
 ```python
-from pathlib import Path
-
-TILES_DIRECTORY = Path('snake-tiles')
-
-for path in TILES_DIRECTORY.glob('*.png'):
-    print(path)
+snake_tiles = {}
+for start in ['bottom', 'end', 'left', 'right', 'top']:
+    for end in ['bottom', 'end', 'left', 'right', 'top', 'dead', 'tongue']:
+        key = start + '-' + end
+        image = pyglet.image.load('snake-tiles/' + key + '.png')
+        snake_tiles[key] = image
 ```
 
-My z každého souboru potřebujeme nejlépe jméno, tedy místo
-`snake-tiles/right-head.png` jenom `right-head`.
-Na to naštěstí existuje atribut `stem` (*kořen*, t.j. jméno bez přípony).
-Místo `print(path)` použij:
-
-```python
-    print(path.stem)
-```
-
-Funguje? Máš vypsané všechny možné kousky hada?
-
-Teď budeme chtít načíst obrázky do *slovníku*.
-*Klíče* slovníku, podle kterých budeme vyhledávat, budou jména, která jsi
-právě vypsal{{a}}.
-*Hodnoty* pak budou pygletí obrázky, které ve hře můžeš rovnou vykreslit.
-
-Začni s prázdným slovníkem, `{}`, a v cyklu `for` do něj postupně přidávej
-záznamy.
-Pak slovník vypiš.
-
-Až to budeš mít, měl by výpis vypadat asi takhle:
+Tenhle kód dej poblíž místu, kde načítáš ostatní obrázky (`pyglet.image.load`).
+Pak celý slovník pro kontrolu vypiš: `print(snake_tiles)`.
+Výpis bude vypadat dost nepřehledně, ale třeba v něm poznáš slovník –
+*{klíč: hodnota, klíč: hodnota, ...}*:
 
 ```
 {'right-tongue': <ImageData 64x64>, 'top-tongue': <ImageData 64x64>,
  'right-top': <ImageData 64x64>, 'left-bottom': <ImageData 64x64>,
- 'tail-left': <ImageData 64x64>, 'bottom-tongue': <ImageData 64x64>,
+ 'end-left': <ImageData 64x64>, 'bottom-tongue': <ImageData 64x64>,
  'left-top': <ImageData 64x64>, 'bottom-bottom': <ImageData 64x64>,
  ...
 ```
-
-{% filter solution %}
-```python
-from pathlib import Path
-
-import pyglet
-
-TILES_DIRECTORY = Path('snake-tiles')
-
-snake_tiles = {}
-for path in TILES_DIRECTORY.glob('*.png'):
-    snake_tiles[path.stem] = pyglet.image.load(path)
-
-print(snake_tiles)
-```
-{% endfilter %}
 
 
 ## Housenka
 
 A teď zkus načtení obrázků začlenit do programu s hadem!
 
-Všechny importy patří nahoru, konstanty pod ně, a dál pak zbytek kódu.
-Vypisovat načtený slovník ve hře nemusíš, zato místo `green_image`
-pak ve vykreslovací funkci použij třeba `snake_tiles['tail-head']`.
+Ve vykreslovací funkci použij místo `green_image` jeden z obrázků,
+třeba `snake_tiles['end-end']`.
 
 Místo čtverečků se teď objeví kuličky – místo hada budeš mít „housenku“.
 
@@ -418,34 +535,45 @@ Místo čtverečků se teď objeví kuličky – místo hada budeš mít „hous
 
 {% filter solution %}
 ```python
-from pathlib import Path
-
 import pyglet
 
 TILE_SIZE = 64
-TILES_DIRECTORY = Path('snake-tiles')
 
-snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
-food = [(2, 0), (5, 1), (1, 4)]
+class GameState:
+    def initialize(self):
+        self.snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+        self.food = [(2, 0), (5, 1), (1, 4)]
 
-red_image = pyglet.image.load('apple.png')
+    def draw(self):
+        for x, y in self.snake:
+            snake_tiles['end-end'].blit(x * TILE_SIZE, y * TILE_SIZE,
+                                        width=TILE_SIZE, height=TILE_SIZE)
+        for x, y in self.food:
+            apple_image.blit(x * TILE_SIZE, y * TILE_SIZE,
+                             width=TILE_SIZE, height=TILE_SIZE)
+
+state = GameState()
+state.initialize()
+
+apple_image = pyglet.image.load('apple.png')
+green_image = pyglet.image.load('green.png')
 snake_tiles = {}
-for path in TILES_DIRECTORY.glob('*.png'):
-    snake_tiles[path.stem] = pyglet.image.load(path)
+for start in ['bottom', 'end', 'left', 'right', 'top']:
+    for end in ['bottom', 'end', 'left', 'right', 'top', 'dead', 'tongue']:
+        key = start + '-' + end
+        image = pyglet.image.load('snake-tiles/' + key + '.png')
+        snake_tiles[key] = image
 
 window = pyglet.window.Window()
 
 @window.event
 def on_draw():
     window.clear()
+    # Lepší vykreslování (pro nás zatím kouzelné zaříkadlo)
     pyglet.gl.glEnable(pyglet.gl.GL_BLEND)
     pyglet.gl.glBlendFunc(pyglet.gl.GL_SRC_ALPHA, pyglet.gl.GL_ONE_MINUS_SRC_ALPHA)
-    for x, y in snake:
-        snake_tiles['tail-head'].blit(
-            x * TILE_SIZE, y * TILE_SIZE, width=TILE_SIZE, height=TILE_SIZE)
-    for x, y in food:
-        red_image.blit(
-            x * TILE_SIZE, y * TILE_SIZE, width=TILE_SIZE, height=TILE_SIZE)
+
+    state.draw()
 
 pyglet.app.run()
 ```
@@ -453,106 +581,58 @@ pyglet.app.run()
 
 
 ## Jak vybrat čtverečky?
-
 Místo toho, aby byl všude stejný kousek hada,
-ale budeme chtít vybrat vždycky ten správný.
+budeme chtít vybrat vždycky ten správný.
 
 Jak na to?
-
 Podle čeho ho vybrat?
 
-Vytvoř soubor `smery.py` a napiš do něj:
+Obrázky s kousky hada jsou pojmenovány
+<code><var>odkud</var>-<var>kam</var></code>.
+To není náhoda – ukazuje to, co potřebuješ vědět, abys mohl{{a}} ten správný
+kousek vybrat.
+
+Když máš hada podle následujícího obrázku, na políčko (3, 2) patří
+kousek, na kterém se had plazí zleva nahoru – tedy `snake_tiles['left-top']`
+
+{{ figure(
+    img=static('tile-selection.svg'),
+    alt="Had na „šachovnici“ se souřadnicemi. Políčko (3, 2) je zvýrazněné a vedou z něj šipky doleva a nahoru, kudy had pokračuje.",
+) }}
+
+Pro každé z políček hada budeš potřebovat vědět:
+* <var>x</var>-ovou a <var>y</var>-ovou souřadnici políčka a
+* odkud a kam se had plazí – směr k *předchozímu* a *následujícímu* políčku.
+
+Do programu se pak dají hodnoty zadat nějak takto:
 
 ```python
-snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
+    for ... in ...:   # čím bude cyklus procházet? Samotným self.snake?
+        x = ...
+        y = ...
+        before = ...  # Směr k předchozímu políčku ('left' nebo 'top' nebo ...)
+        after = ...   # Směr k následujícímu políčku 
 
-for x, y in snake:
-    print(x, y)
+        key = before + '-' + after  # název obrázku políčka
+        snake_tiles[key].blit(x * TILE_SIZE, y * TILE_SIZE,
+                              width=TILE_SIZE, height=TILE_SIZE)
 ```
 
-Tenhle kód vypisuje souřadnice:
-
-```
-1 2
-2 2
-3 2
-3 3
-3 4
-3 5
-4 5
-```
-
-Zkus vymyslet, jak by se tenhle kód dal změnit, aby vypisoval ke každé
-souřadnici *směr* k předchozímu a následujícímu políčku – tedy odkud a kam
-každý kousek hada „vede“.
-Takhle:
-
-{#
-snake = [(1, 2), (2, 2), (3, 2), (3, 3), (3, 4), (3, 5), (4, 5)]
-
-def direction(a, b):
-    if a is None:
-        return 'end'
-    if b is None:
-        return 'end'
-    x1, y1 = a
-    x2, y2 = b
-    if x1 == x2 - 1:
-        return 'left'
-    elif x1 == x2 + 1:
-        return 'right'
-    elif y1 == y2 - 1:
-        return 'bottom'
-    elif y1 == y2 + 1:
-        return 'top'
-    return 'end'
-
-for a, b, c in zip([None] + snake, snake, snake[1:] + [None]):
-    x, y = b
-    u = direction(a, b)
-    v = direction(c, b)
-    print(x, y, u, v)
-#}
-
-
-```
-1 2 tail right
-2 2 left right
-3 2 left top
-3 3 bottom top
-3 4 bottom top
-3 5 bottom right
-4 5 left head
-```
+Ty vynechané `...` je ale potřeba doplnit!
 
 Toto je **těžký úkol**.
-Nepředpokládám, že ho zvládneš vyřešit hned, i když všechny potřebné informace
-a nástroje k tomu znáš.
+I když všechny potřebné informace a nástroje k tomu teď teoreticky znáš,
+je potřeba je správným způsobem poskládat dohromady.
+Tohle skládání dohromady, *návrh algoritmů*, je nejsložitější programátorská 
+disciplína.
+
 Zkus nad tím ale přemýšlet, nech si to rozležet v hlavě třeba přes noc,
 vrať se k materiálům k předchozím lekcím (hlavně k úvodu do Pythonu),
 zkoušej a objevuj… A časem na to přijdeš.
-
-Až se to stane, zkus své řešení co nejvíc *zjednodušit* a pak ho zakomponovat
-do vykreslovací funkce.
-To by už nemělo být příliš složité:
-
-```python
-    for ??? in ???snake???:
-        ...
-        x = ???
-        y = ???
-        odkud = ???
-        kam = ???
-        ...
-
-        snake_tiles[odkud + '-' + kam].blit(
-            x * TILE_SIZE, y * TILE_SIZE, width=TILE_SIZE, height=TILE_SIZE)
-```
-
-Soubor `smery.py` po vyřešení nemaž, bude se ti pak hodit.
-
-Odměnou za vyřešení tohoto úkolu ti bude had místo housenky.
+Odměnou za vyřešení ti bude had místo housenky.
 
 Než na to přijdeš, zbytek programu ti neuteče.
 Housenka je úplně stejně hratelná jako had, jen jinak vypadá.
-Klidně přejdi na další část – logiku hry – s housenkou.
+Klidně přejdi na [psaní logiky hry](../logic) s housenkou.
+
+Nebo se [necháš poddat](../tile-selection)?

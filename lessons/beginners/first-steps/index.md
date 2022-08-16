@@ -20,21 +20,31 @@ ale jsou psané v angličtině a pro trochu pokročilejší publikum.
 Třemi „zobáčky“ `>>>` pak Python poprosí o instrukce.
 Je to jako v příkazové řádce, ale místo příkazů jako `cd` a `mkdir` sem budeš psát příkazy Pythonu.
 
-Příkazy z příkazové řádky v Pythonu nefungují,
-ačkoli okýnko vypadá skoro stejně.
-Vyzkoušej si to. Za „zobáčky“ napiš `whoami` a zmáčkni Enter:
+Práci s příkazovým řádkem si můžeš představit jako telefonní konverzaci:
+nejdřív ses s počítačem bavil{{a}} pomocí příkazů jako `cd`.
+Příkaz `python` znamená „dej mi prosím k telefonu Python!“
+Následující „konverzace“ bude s úplně jiným programem, i když okýnko s textem
+vypadá skoro stejně.
+
+Vyzkoušej si, že příkazy z příkazové řádky v Pythonu nefungují:
 
 ```pycon
+>>> cd adresar
+  File "<stdin>", line 1
+    cd adresar
+       ^
+SyntaxError: invalid syntax
 >>> whoami
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'whoami' is not defined
 ```
 
-Tohle je *chybová hláška*, která se objeví vždycky,
+Tohle je *chybová hláška*, která se objeví vždycky
 když Python nebude spokojený.
 V průběhu kurzu jich uvidíš ještě spoustu,
 takže si ji dobře prohlédni, ať ji příště poznáš.
+
 
 ## První příkaz
 
@@ -67,26 +77,34 @@ Python proto používá symbol `*`.
 20
 ```
 
-Symboly jako `+` a `*` se odborně nazývají *operátory*.
+Znaménka jako `+`, `-` a `*` se odborně nazývají *operátory*.
 
-Operátor pro dělení je `/` – jako u násobení, znak `÷` by se psal špatně.
+> [style-note]
+> Mezery mezi čísly a operátorem nejsou nutné: `4*5` i `4       * 5` dělá
+> to samé co `4 * 5`.
+> Je ale zvykem psát kolem operátoru jednu mezeru z každé strany – tak jako
+> v těchto materiálech.
+> Kód je pak čitelnější.
+
+Operátor pro dělení je `/`.
 
 Při dělení může vzniknout necelé číslo, třeba dva a půl.
 Python používá desetinnou *tečku*, ukáže se tedy `2.5`:
 
-``` python
+``` pycon
 >>> 5 / 2
 2.5
 ```
 
-Z důvodů, do kterých teď nebudeme zabíhat, se při dělení desetinná tečka
-objeví, i když vyjde číslo celé:
+Z důvodů do kterých teď nebudeme zabíhat Python rozlišuje mezi celými a
+reálnými čísly.
+Desetinná tečka se proto objeví i když vyjde číslo celé:
 ``` pycon
 >>> 4 / 2
 2.0
 ```
 
-Občas se hodí použít dělení se zbytkem, kdy výsledek zůstane jako celé číslo.
+Občas se hodí použít dělení se zbytkem, kdy podíl zůstane jako celé číslo.
 Na to má Python operátory `//` (podíl) a `%` (zbytek):
 
 ``` pycon
@@ -96,44 +114,46 @@ Na to má Python operátory `//` (podíl) a `%` (zbytek):
 1
 ```
 
-> [style-note]
-> Mezery mezi čísly a znamínkem nejsou nutné: `4*5` i `4       * 5` dělá
-> to samé co `4 * 5`.
-> Je ale zvykem psát kolem operátoru jednu mezeru z každé strany – tak jako
-> v těchto materiálech.
-> Kód je pak čitelnější.
+Časem zjistíš že dělení se zbytkem je v programování překvapivě užitečné.
+Jestli si děláš poznámky, `//` i `%` si do nich určitě přidej!
 
 
 ### Ukončení
 
 Pokud ses dostal{{a}} až sem, gratuluji!
 Python máš nejen nainstalovaný, ale taky ti funguje.
-Stačí ho už jen zavřít a pak opustit i samotnou příkazovou řádku.
-V Pythonu se to dělá pomocí `quit()`, s prázdnými závorkami na konci.
+Stačí ho už jen zavřít.
+To se dělá pomocí `quit()`, s prázdnými závorkami na konci.
 
 <div class="highlight"><pre>
 <span class="gp">&gt;&gt;&gt;</span> quit()
 <span class="gp">(venv)$</span>
 </pre></div>
 
+Tím ukončíš konverzaci s Pythonem a „zavoláš k telefonu“
+zpátky příkazovou řádku.
 Zobáčky `>>>` se změnily na výzvu
-příkazové řádky, která začíná `(venv)` a končí `$` nebo `>`.
-Teď fungují příkazy jako `whoami` a `cd`, ale příkazy Pythonu
-jako `1 + 2` fungovat nebudou, dokud Python opět nepustíš pomocí
-příkazu `python`.
+příkazové řádky (která začíná `(venv)` a končí `$` nebo `>`).
+Příkazy Pythonu, jako `1 + 2`, teď fungovat nebudou (dokud Python opět
+nepustíš ke slovu pomocí příkazu `python`).
+Zato příkazům jako `whoami` a `cd` teď počítač rozumět bude.
 
-Ukončit virtuální prostředí můžeš příkazem `deactivate` –
-tentokrát bez závorek.
+Teď můžeš okno s příkazovou řádkou zavřít – buď zavři její okýnko,
+nebo na to můžeš použít následující textové příkazy.
+
+Virtuální prostředí můžeš ukončit příkazem `deactivate` – tentokrát bez
+závorek:
 
 ```console
 (venv)$ deactivate
 ```
 
-Příkazovou řádku můžeš nakonec zavřít příkazem `exit`.
+A celou příkazovou řádku můžeš zavřít příkazem `exit`:
 
 ```console
 $ exit
 ```
 
 Pro cvik si zkus Python znovu spustit – nejdřív otevři příkazovou řádku,
-pak aktivuj virtuální prostředí, potom spusť Python samotný.
+pak donaviguj do adresáře s virtuálním prostředím,
+aktivuj virtuální prostředí a nakonec spusť Python samotný.

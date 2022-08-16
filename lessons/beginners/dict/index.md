@@ -10,7 +10,7 @@ Představ si překladový slovník, třeba tenhle česko-anglický:
 * **Knoflík**: Button
 * **Myš**: Mouse
 
-Slovník v Pythonu obsahuje *záznamy*. Každý záznam přiřazuje
+Slovník v Pythonu obsahuje *záznamy*, a každý záznam přiřazuje
 nějakému *klíči* nějakou *hodnotu*.
 V našem příkladu je klíči *Jablko* přiřazena hodnota *Apple*,
 klíči *Knoflík* náleží hodnota *Button*
@@ -90,7 +90,7 @@ u seznamů – příkazem `del`:
 {'Jablko': 'Apple', 'Knoflík': 'Button', 'Myš': 'Mouse'}
 ```
 
-Když budeš chtít zjistit, kolik je ve slovníku záznamů,
+Když budeš chtít zjistit kolik je ve slovníku záznamů,
 zeptáš se podobně jako na počet znaků řetězce nebo prvků seznamu.
 Použiješ funkci `len()`.
 
@@ -134,8 +134,8 @@ Mouse
 
 Většinou ale potřebuješ jak klíče tak hodnoty.
 K tomu mají slovníky metodu `items`, která vrací iterátor dvojic.
-Často využiješ možnost každou dvojici přímo rozbalit v cyklu `for`,
-jako se to dělá se `zip` nebo `enumerate`:
+Často každou dvojici přímo rozbalíš v cyklu `for`, jako se to dělá se
+`zip` nebo `enumerate`:
 
 ```pycon
 >>> for klic, hodnota in slovnik.items():
@@ -144,6 +144,15 @@ Jablko: Apple
 Knoflík: Button
 Myš: Mouse
 ```
+
+> [note]
+> Existuje i metoda `keys()`, která vrací klíče.
+>
+> To, co `keys()`, `values()` a `items()` vrací, jsou speciální objekty,
+> které kromě použití ve `for` umožňují další
+> operace: například pracovat s klíči jako s množinou.
+> V [dokumentaci](https://docs.python.org/3.0/library/stdtypes.html#dictionary-view-objects)
+> Pythonu je to všechno popsáno.
 
 V průběhu iterace (tedy v rámci `for` cyklu) nesmíš
 do slovníku přidávat záznamy, ani záznamy odebírat:

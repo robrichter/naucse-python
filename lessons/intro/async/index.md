@@ -235,6 +235,9 @@ způsoby:
   úlohy „vyčerpaly“), nebo
 * `loop.run_until_complete(task)` – tahle funkce skončí hned, jakmile je hotová
   daná úloha, a vrátí její výsledek.
+* Od Pythonu 3.7 můžete použít jednoduché `asyncio.run(task)`, aniž byste museli
+  explicitně pracovat s určitou smyčkou událostí. Jedná se ale o API, které se
+  v budoucnu může změnit.
 
 Nakonec je smyčku potřeba uzavřít (`loop.close()`), což např. dá použitým
 knihovnám možnost korektně uzavřít zbylá síťová spojení.
@@ -355,6 +358,173 @@ result = loop.run_until_complete(demo_task())
 loop.close()
 ```
 
+Futures
+-------
+
+Jak už bylo řečeno, knihovna `asyncio` je uvnitř založená na *futures*.
+Copak to je?
+
+`Future` je objekt, který reprezentuje budoucí výsledek nějaké operace.
+Poté, co tato operace skončí, se výsledek dá zjistit pomocí metody `result()`;
+jestli je operace hotová se dá zjistit pomocí `done()`.
+`Future` je taková „krabička“ na vrácenou hodnotu – než tam něco
+tu hodnotu dá, musíme počkat; poté je hodnota stále k dispozici.
+Tohle čekání se dělá pomocí `await` (nebo `loop.run_until_complete`).
+
+```python
+import asyncio
+
+
+async def set_future(fut):
+    """Sets the value of a Future, after a delay"""
+    print('set_future: sleeping...')
+    await asyncio.sleep(1)
+    print('set_future: setting future')
+    fut.set_result(123)
+    print('set_future done.')
+
+
+async def get_future(fut):
+    """Receives the value of a Future, once it's ready"""
+    print('get_future: waiting for future...')
+    await fut
+    print('get_future: getting result')
+    result = fut.result()
+    print('get_future: done')
+    return result
+
+
+future = asyncio.Future()
+
+
+# Schedule the "set_future" task (explained later)
+asyncio.ensure_future(set_future(future))
+
+
+# Run the "get_future" coroutine until complete
+loop = asyncio.get_event_loop()
+result = loop.run_until_complete(get_future(future))
+loop.close()
+
+print('Result is', result)
+```
+
+Do `Future` se dá vložit i výjimka.
+To se využívá v případě, že úloha, která má `Future` naplnit, selže. 
+Metoda `result()` potom tuto výjimku způsobí v kódu, který by výsledek
+zpracovával.
+
+Na `Future` se navíc dají navázat funkce, které se zavolají jakmile je
+výsledek k dispozici.
+Dá se tak implementovat *callback* styl programování (který možná znáte
+např. z Node.js). Pomocí *futures & callbacks* se před nástupem
+generátorů programovalo pro knihovny jako `Twisted`.
+
+Podobně jako `yield` se `await` dá použít jako výraz, jehož
+hodnota je výsledek dané `Future`.
+Funkci `get_future` z příkladu výše tak lze napsat stručněji:
+
+```python
+async def get_future(fut):
+    """Receives the value of a Future, once it's ready"""
+    return (await fut)
+```
+
+Další vlastnost `Future` je ta, že se dá „zrušit“: pomocí `Future.cancel()`
+signalizujeme úloze, která má připravit výsledek, že už ten výsledek
+nepotřebujeme.
+Po zrušení bude `result()` způsobovat `CancelledError`.
+
+
+Async funkce a Task
+-------------------
+
+Používání `Future` (nebo *callback* funkcí) je poněkud těžkopádné.
+V `asyncio` se `Future` používají hlavně proto, že je na ně jednoduché
+navázat existující knihovny.
+Aplikační kód je ale lepší psát pomocí asynchronních funkcí, tak jako
+v příkladu výše.
+
+Asynchronní funkce se dají kombinovat pomocí `await` podobně jako generátory
+pomocí `yield from`.
+Nevýhoda asynchronních funkcí spočívá v tom, že na každé zavolání takové funkce
+lze použít jen jeden `await`.
+Na rozdíl od `Future` se výsledek nikam neukládá;
+jen se po skončení jednou předá.
+
+```python
+import asyncio
+
+async def add(a, b):
+    await asyncio.sleep(1)  # schedule a "sleep" and wait for it to finish
+    return a + b
+
+async def demo():
+    coroutine = add(2, 3)
+    result = await coroutine  # schedule "add" and wait for it to finish
+    print('The result is:', result)
+
+loop = asyncio.get_event_loop()
+result = loop.run_until_complete(demo())
+loop.close()
+```
+
+Nevýhoda čistých *coroutines* spočívá v tom, že na každé zavolání
+takové funkce lze použít jen jeden `await`.
+Výsledek se nikam neukládá, jen se po skončení jednou předá.
+Druhý `await` pro stejné zavolání asynchronní funkce skončí s chybou.
+Zkuste si to – v kódu výše přidejte daší řádek s `await coroutine`:
+
+```python
+async def demo():
+    coroutine = asyncio.ensure_future(add(2, 3))
+    print('The result is:', (await coroutine))
+    print('The result is:', (await coroutine))  # OK!
+```
+
+Tenhle problém můžeme vyřešit tak, že asynchronní funkci „zabalíme“
+jako úlohu, *Task*.
+V Pythonu 3.7 se Task tvoří pomocí `asyncio.create_task`;
+pro kompatibilitu se staršími verzemi ale použijeme ekvivalentní
+`asyncio.ensure_future`.
+Task se chová stejně jako *coroutine* – lze použít v `await` nebo
+`run_until_complete`, ale navíc:
+
+* výsledek je k dispozici kdykoli po ukončení funkce (např. pro druhý `await`) a
+* úloha se naplánuje hned po zavolání `ensure_future`.
+
+Druhou vlastnost je lepší ukázat na příkladu:
+
+```python
+import asyncio
+
+async def print_and_wait():
+    print('Async function starting')
+    await asyncio.sleep(0.5)
+    print('Async function done')
+    return 'result'
+
+async def demo_coro():
+    coroutine = print_and_wait()
+    await asyncio.sleep(1)
+    print('Awaiting coroutine')
+    print(await coroutine)     # schedule coroutine and wait for it to finish
+
+async def demo_task():
+    task = asyncio.ensure_future(print_and_wait())  # schedule the task
+    await asyncio.sleep(1)
+    print('Awaiting task')
+    print(await task)  # task is finished at this point; retreive its result
+
+
+loop = asyncio.get_event_loop()
+print('Coroutine:')
+result = loop.run_until_complete(demo_coro())
+print('Task:')
+result = loop.run_until_complete(demo_task())
+loop.close()
+```
+
 Fan-Out a Fan-In
 ----------------
 
@@ -416,80 +586,6 @@ async with database.transaction_context():
 ```
 
 
-A další
--------
-
-Nakonec několik tipů, o kterých je dobré vědět.
-
-V `asyncio` najdeme synchronizační mechanismy známé z vláknového programování, např.
-`Lock` a `Semaphore` – viz [dokumentace](https://docs.python.org/3/library/asyncio-sync.html).
-
-Musíme-li použít blokující funkci, která např. komunikuje po síti bez `await` a která by
-tedy zablokovala i všechny ostatní úlohy, můžeme použít
-`loop.run_in_executor()`, a tím danou funkci zavolat ve vlákně nebo podprocesu, ale výsledek zpřístupnit
-jako objekt, na který lze počkat pomocí `await`.
-Použití je opět popsáno v [dokumentaci](https://docs.python.org/3/library/asyncio-eventloop.html#executor).
-
-Občas vás při programování s `asyncio` zaskočí zrádná chyba.
-V takových případech je dobré zapnout *debug* režim pomocí proměnné prostředí `PYTHONASYNCIODEBUG=1`.
-V tomto režimu `asyncio` upozorňuje na časté chyby, do některých chybových výpisů přidává informaci o tom,
-kde aktuální `Task` vznikl, apod.
-Více informací je zase v [dokumentaci](https://docs.python.org/3/library/asyncio-dev.html#asyncio-dev).
-
-
-Alternativní smyčky událostí
-----------------------------
-
-Jak bylo zmíněno na začátku, hlavní cíl `asyncio` je definovat společné rozhraní
-pro různé asynchronní knihovny, aby bylo možné např. kombinovat knihovny pro
-Tornado se smyčkou událostí v Twisted.
-Samotné `asyncio` je jen jedna z mnoha implementací tohoto rozhraní.
-Zajímavá je například knihovna [uvloop], která je asi 2-4× rychlejší než `asyncio`
-(ale má závislosti, které se pro součást standardní knihovny nehodí).
-
-Další zajímavá implementace je [asyncqt], která pod standardním `asyncio` API používá
-smyčku událostí z Qt.
-Umožňuje tak efektivně zpracovávat Qt události zároveň s asynchronními funkcemi
-známými z `asyncio`.
-
-*Event loop* z `asyncqt` je potřeba na začátku programu naimportovat a nastavit
-jako hlavní smyčku událostí, a poté ji, místo Qt-ovského `app.exec()`, spustit.
-Jednotlivé asynchronní funkce se pak používají jako v čistém `asyncio`:
-pomocí `asyncio.ensure_future`, `await`, atd.
-
-[uvloop]: https://pypi.org/project/uvloop/
-[asyncqt]: https://pypi.org/project/asyncqt/
-
-Ukázka:
-
-```python
-import asyncio
-
-from PyQt5 import QtGui, QtWidgets
-from asyncqt import QEventLoop
-
-app = QtWidgets.QApplication([])
-loop = QEventLoop(app)
-asyncio.set_event_loop(loop)
-
-display = QtWidgets.QLCDNumber()
-display.setWindowTitle('Stopwatch')
-
-display.show()
-
-async def update_time():
-    value = 0
-    while True:
-        display.display(value)
-        await asyncio.sleep(1)
-        value += 1
-
-asyncio.ensure_future(update_time())
-
-loop.run_forever()
-```
-
-
 Komunikace
 ----------
 
@@ -543,4 +639,77 @@ async def main(url):
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main('http://python.cz'))
 loop.close()
+```
+
+A další
+-------
+
+Nakonec několik tipů, o kterých je dobré vědět.
+
+V `asyncio` najdeme synchronizační mechanismy známé z vláknového programování, např.
+`Lock` a `Semaphore` – viz [dokumentace](https://docs.python.org/3/library/asyncio-sync.html).
+
+Musíme-li použít blokující funkci, která např. komunikuje po síti bez `await` a která by
+tedy zablokovala i všechny ostatní úlohy, můžeme použít
+`loop.run_in_executor()`, a tím danou funkci zavolat ve vlákně nebo podprocesu, ale výsledek zpřístupnit
+jako objekt, na který lze počkat pomocí `await`.
+Použití je opět popsáno v [dokumentaci](https://docs.python.org/3/library/asyncio-eventloop.html#executor).
+
+Občas vás při programování s `asyncio` zaskočí zrádná chyba.
+V takových případech je dobré zapnout *debug* režim pomocí proměnné prostředí `PYTHONASYNCIODEBUG=1`.
+V tomto režimu `asyncio` upozorňuje na časté chyby, do některých chybových výpisů přidává informaci o tom,
+kde aktuální `Task` vznikl, apod.
+Více informací je zase v [dokumentaci](https://docs.python.org/3/library/asyncio-dev.html#asyncio-dev).
+
+
+Alternativní smyčky událostí
+----------------------------
+
+Jak bylo zmíněno na začátku, hlavní cíl `asyncio` je definovat společné rozhraní
+pro různé asynchronní knihovny, aby bylo možné např. kombinovat knihovny pro
+Tornado se smyčkou událostí v Twisted.
+Samotná knihovna `asyncio` je jen jedna z mnoha implementací tohoto rozhraní.
+Zajímavá je například knihovna [uvloop], která je asi 2-4× rychlejší než `asyncio`
+(ale má závislosti, které se pro součást standardní knihovny nehodí).
+
+Další zajímavá implementace je [asyncqt], která pod standardním `asyncio` API používá
+smyčku událostí z Qt.
+Umožňuje tak efektivně zpracovávat Qt události zároveň s asynchronními funkcemi
+známými z `asyncio`.
+
+*Event loop* z `asyncqt` je potřeba na začátku programu naimportovat a nastavit
+jako hlavní smyčku událostí, a poté ji, místo Qt-ovského `app.exec()`, spustit.
+Jednotlivé asynchronní funkce se pak používají jako v čistém `asyncio`:
+pomocí `asyncio.ensure_future`, `await`, atd.
+
+[uvloop]: https://pypi.org/project/uvloop/
+[asyncqt]: https://pypi.org/project/asyncqt/
+
+Ukázka:
+
+```python
+import asyncio
+
+from PyQt5 import QtGui, QtWidgets
+from asyncqt import QEventLoop
+
+app = QtWidgets.QApplication([])
+loop = QEventLoop(app)
+asyncio.set_event_loop(loop)
+
+display = QtWidgets.QLCDNumber()
+display.setWindowTitle('Stopwatch')
+
+display.show()
+
+async def update_time():
+    value = 0
+    while True:
+        display.display(value)
+        await asyncio.sleep(1)
+        value += 1
+
+asyncio.ensure_future(update_time())
+
+loop.run_forever()
 ```

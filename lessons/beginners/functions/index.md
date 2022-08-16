@@ -78,9 +78,6 @@ delka = len(slovo)      # Vypočítání délky
 print(delka)
 ```
 
-To `len` je *funkce* (angl. *function*).
-Jak se takové funkce používají?
-
 K tomu, abys funkci mohl{{a}} použít, potřebuješ znát její
 *jméno* – tady `len`.
 Za jméno funkce patří závorky,
@@ -176,7 +173,7 @@ print(         9     )
 … a podobně.
 
 
-### Procedury
+### Funkce a procedury
 
 Možná sis všiml{{a}}, že jednu funkci už voláš déle: `print("Ahoj!")`
 je taky volání funkce.
@@ -208,6 +205,23 @@ Pár příkladů:
 > Je vypůjčený z jazyka Pascal.
 > Kdybys o něm diskutoval{{a}} s nějakým zkušeným programátorem,
 > odkaž ho prosím na tyto materiály.
+
+
+Kontrolní otázky:
+
+* Je `input` „normální“ funkce, nebo procedura?
+* Co bere funkce `input` jako argument?
+* Jaká je návratová hodnota funkce `input`?
+
+{% filter solution %}
+Funkce `input` vrací hodnotu, se kterou může program dál pracovat.
+Zařadil bych ji tedy mezi „normální“ funkce.
+
+Jako argument bere `input` otázku, na kterou se uživatele zeptá.
+
+Návratová hodnota funkce `input` je uživatelova odpověď.
+{% endfilter %}
+
 
 
 ## Argumenty
@@ -243,6 +257,9 @@ print()
 
 {% filter solution %}
 Funkce `print` zavolaná bez argumentů napíše prázdný řádek.
+
+(Je to přesně podle definice – funkce `print` všechny své argumenty vypíše
+na řádek.)
 {% endfilter %}
 
 

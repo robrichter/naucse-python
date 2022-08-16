@@ -75,7 +75,7 @@ Podobně `4.0` a `4.000` jsou dva zápisy téhož čísla,
 tak `'slovo'` a `"slovo"` pro Python označuje stejnou
 hodnotu, skládající se ze stejných pěti písmen.
 
-Použité uvozovky nejsou součástí hodnoty – python si „nepamatuje“, jakým
+Použité uvozovky nejsou součástí hodnoty – Python si „nepamatuje“, jakým
 způsobem byl řetězec uvozen.
 Když má nějaký řetězec vypsat s uvozovkami, jedny si k tomu vybere – většinou
 ty jednoduché:
@@ -150,7 +150,7 @@ Vtom vnuk křik': "Hleď!"
 Ve výsledném řetězci pak ovšem žádné zpětné lomítko *není*.
 Sekvence `\'` je jen způsob, jak v Pythonu zadat `'` – jediný znak.
 Tomu je celkem důležité porozumět.
-Zkus si, jestli zvládneš předpovědět výsledek těchto výrazů:
+Zkus si, jestli zvládneš předpovědět výsledek těchto příkazů:
 
 ```pycon
 >>> print(".\".")
@@ -170,9 +170,9 @@ Zkus si, jestli zvládneš předpovědět výsledek těchto výrazů:
 {% endfilter %}
 
 
-Znaků, které se zadávají sekvencí se zpětným lomítkem, je více.
-Jedna ze zajímavějších je `\t`, představující tabulátor – jediný znak, který
-se, když ho vypíšeš, „roztáhne“ na víc mezer.
+Znaků které se zadávají sekvencí se zpětným lomítkem je více.
+Jedním ze zajímavějších je `\t`, představující tabulátor.
+Je to jen jeden znak, ale když ho vypíšeš „roztáhne“ se na víc mezer.
 
 ```pycon
 >>> print("a\tb")   # Výpis "pro lidi"
@@ -183,7 +183,7 @@ a       b
 3
 ```
 
-Se zpětným lomítkem se dá zadat jakýkoli znak – včetně *emoji* – podle jména
+Se zpětným lomítkem můžeš zadat jakýkoli znak – včetně *emoji* – podle jména
 (`\N{…}`) nebo identifikačního čísla (`\x..`, `\u....`, `\U........`)
 standardu Unicode.
 Stačí přesné jméno nebo číslo znát (nebo třeba dohledat na internetu).
@@ -229,9 +229,9 @@ je zápis pro jedno zpětné lomítko.
 Někdy potřebuješ řetězce, které obsahují více řádků.
 Pythonní řetězce ale můžeš normálně napsat jen na *jeden* řádek.
 (Python se tak snaží ulehčit hledání chyby, kdybys koncovou uvozovku
-zapoměl{{a}}.)
+zapomněl{{a}}.)
 
-Můžeš ale do řetězce znak pro nový řádek vložit pomocí sekvence `\n`:
+Znak pro nový řádek ale můžeš do řetězce vložit pomocí sekvence `\n`:
 
 ```pycon
 >>> print('Haló haló!\nCo se stalo?')
@@ -254,7 +254,7 @@ jako jakýkoli jiný znak:
 
 ## Trojité uvozovky
 
-Kromě `\n` je i druhý způsob, jak zadat řetězec se znakem nového řádku:
+Kromě `\n` existuje i druhý způsob jak zadat řetězec se znakem nového řádku:
 ohraničit ho *třemi* uvozovkami (jednoduchými nebo dvojitými)
 na každé straně.
 Dají se tak zadávat delší víceřádkové řetězce:
@@ -268,7 +268,20 @@ Prase kozu potrkalo!'''
 Pozor na to, že pokud je tenhle řetězec
 v odsazeném kódu, každý jeho řádek bude začínat
 několika mezerami.
-(V dokumentačních řetězcích tohle nevadí, tam se s odsazením počítá.)
+
+```python
+cislo = 4
+
+if cislo > 0:
+    print("""
+        Výsledek porovnání:
+
+        Číslo je kladné.
+    """)
+```
+
+Víceřádkové řetězce se často používají jako dokumentační řetězce funkcí.
+U nich nevadí, že jsou na začátku řádků mezery.
 
 ```python
 cislo = 4
@@ -311,6 +324,5 @@ if True:
 
 {# 7, 8, 9, more #}
 print(len('C:\new_dir'))
-
-print(len(f'{print}'))
 ```
+
