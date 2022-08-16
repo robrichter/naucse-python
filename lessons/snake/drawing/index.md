@@ -181,7 +181,7 @@ pyglet.app.run()
 ```
 
 Kostru Pygletí aplikace připiš do svého programu.
-Řádek s importem patří podle konvencí úplně na začátek; zbytek připiš dej
+Řádek s importem patří podle konvencí úplně na začátek; zbytek připiš
 *za* svůj odsavadní kód.
 
 ```python
@@ -250,7 +250,7 @@ Kód je teď trochu delší, ale až budeš chtít velikost čtverečku změnit,
 stačí to udělat na jednom místě.
 
 Povedlo se? Máš větší čtvereček?
-Jestli ne, zkus si program celý, řádek po řádce, projít a zkontrolovat.
+Jestli ne, zkus si program celý, řádek po řádku, projít a zkontrolovat.
 Nebo ho porovnej se vzorovým řešením (což je rychlejší varianta, ale míň
 se naučíš).
 
@@ -382,7 +382,7 @@ Budeš na to potřebovat několik věcí:
 * načíst obrázek `apple_image` podobně jako načítáš zelený čtvereček – 
   nastavuješ proměnnou `green_image` a
 * několikrát vykreslit obrázek `apple_image` podobně jako vykresluješ
-  zalená čtverečky – voláním `green_image.blit` v cyklu
+  zelené čtverečky – voláním `green_image.blit` v cyklu
 
 
 {% filter solution %}

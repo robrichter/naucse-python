@@ -195,7 +195,7 @@ Druhý parametr nebude v naší hře potřeba, ale v hlavičce funkce musí b�
 
 [key-constants]: https://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/modules/window_key.html#key-constants
 
-Funkci `on_key_press je potřeba dát někam za nastavení `window` (aby byl
+Funkci `on_key_press` je potřeba dát někam za nastavení `window` (aby byl
 k dispozici `window.event`) a před `pyglet.app.run()` (protože nastavovat
 ovládání až potom, co hra proběhne, je zbytečné).
 Nejlepší je ji dát vedle jiné funkce s dekorátorem `@window.event`,
@@ -526,7 +526,7 @@ Hotovo!
 
 Není ale dobré při konci hry ukončit celý program a zavřít okýnko.
 
-Lepší je hru „zapauzovat“ a ukázat hráči situaci, do které nešťastného hada
+Lepší je hru „zapauzovat“ a ukázat hráči situaci do které nešťastného hada
 dostal, aby se z ní mohl pro příště poučit.
 
 Aby to bylo možné, dáme do stavu hry další atribut: `alive`.

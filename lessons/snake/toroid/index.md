@@ -33,7 +33,7 @@ problém.
 
 ## Zbytkové řešení
 
-Jde logiku vylázání z okýnka vyřešit jednodušeji? Jde!
+Jde logiku vylézání z okýnka vyřešit jednodušeji? Jde!
 Matematikové vymysleli operaci, která se jmenuje *zbytek po dělení*.
 Ta dělá přesně to, co tu potřebuješ – zbytek po dělení nové souřadnice velikostí
 hřiště dá souřadnici, která leží v hřišti.
@@ -73,7 +73,7 @@ i bez „zkratek“. Jen občas trochu krkoloměji.
 
 > [note] Pro matematiky
 > Zkušení matematici si teď možná stěžují na nutnost definovat zbytek po
-> dělení záporným číslem. Proto dodám, že ho Python schválně
+> dělení záporného čísla. Proto dodám, že ho Python schválně
 > [definuje vhodně](https://docs.python.org/3/reference/expressions.html#binary-arithmetic-operations)
 > pro tento účel; `a % b` má vždy stejné znaménko jako `b`.
 
