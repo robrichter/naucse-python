@@ -32,11 +32,6 @@ long_description: |
     z jarních začátečnických kurzů PyLadies, které začnou nedlouho
     po workshopu.
 
-    ---
-
-    Některé z materiálů níže jsou zatím poznámky pro lektora, psané pro
-    pokročilejší studenty; na workshopu budou podány v jednodušší podobě.
-
 vars:
   coach-present: true
   user-gender: f
