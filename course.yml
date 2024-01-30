@@ -1,6 +1,6 @@
 title: Hadí workshop pro PyLadies
 subtitle: Brno
-place: Red Hat, budova C, Purkyňova 665/115, Brno
+place: Red Hat, budova B, Purkyňova 665/115, Brno
 time: 8:00 až 18:00
 timezone: Europe/Prague
 description: Hravá ochutnávka programování
@@ -48,7 +48,7 @@ plan:
   - lesson: beginners/install-editor
 - title: Úvod do Pythonu
   slug: intro
-  date: 2022-08-20
+  date: 2024-02-17
   time:
     start: '8:00'
     end: '13:00'
@@ -74,7 +74,7 @@ plan:
   - lesson: fast-track/class
 - title: Had
   slug: workshop
-  date: 2022-08-20
+  date: 2024-02-17
   time:
     start: '13:30'
     end: '18:00'
