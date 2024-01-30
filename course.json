@@ -1,7 +1,7 @@
 {
     "api_version": [
         0,
-        3
+        4
     ],
     "course": {
         "description": "Hravá ochutnávka programování",
@@ -20,7 +20,43 @@
                         "content": {
                             "path": "cmdline/index.html"
                         },
+                        "ids": [
+                            "aktualni_adresar",
+                            "co_v_tom_adresari_je",
+                            "konec",
+                            "kopirovani_z_prikazove_radky",
+                            "o_uroven_nahoru",
+                            "otevreni_vprohlizece_souboru",
+                            "pozorovani_zmen",
+                            "prehled",
+                            "prikazova_radka",
+                            "prvni_prikaz",
+                            "vgrafickem_hledatku",
+                            "vkladani_do_prikazove_radky",
+                            "vytvoreni_adresare",
+                            "zmena_aktualniho_adresare"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#aktualni_adresar",
+                            "#co_v_tom_adresari_je",
+                            "#konec",
+                            "#kopirovani_z_prikazove_radky",
+                            "#o_uroven_nahoru",
+                            "#otevreni_vprohlizece_souboru",
+                            "#pozorovani_zmen",
+                            "#prehled",
+                            "#prikazova_radka",
+                            "#prvni_prikaz",
+                            "#vgrafickem_hledatku",
+                            "#vkladani_do_prikazove_radky",
+                            "#vytvoreni_adresare",
+                            "#zmena_aktualniho_adresare",
+                            "naucse:static?filename=linux-file-browser.png",
+                            "naucse:static?filename=macos-file-browser.png",
+                            "naucse:static?filename=windows-cmd-properties.png",
+                            "naucse:static?filename=windows-file-browser.png"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/beginners/cmdline/index.md",
@@ -57,7 +93,16 @@
                         "content": {
                             "path": "install/index.html"
                         },
+                        "ids": [
+                            "instalace_pythonu"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_pythonu",
+                            "naucse:page?lesson=beginners/install&page=linux",
+                            "naucse:page?lesson=beginners/install&page=macos",
+                            "naucse:page?lesson=beginners/install&page=windows"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/beginners/install/index.md",
@@ -74,7 +119,23 @@
                         "content": {
                             "path": "install/linux.html"
                         },
+                        "ids": [
+                            "check-tkinter",
+                            "doinstalovani_virtualenv",
+                            "instalace_pythonu_3",
+                            "instalace_pythonu_na_linux",
+                            "install-virtualenv",
+                            "kontrola_tkinter"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#check-tkinter",
+                            "#doinstalovani_virtualenv",
+                            "#instalace_pythonu_3",
+                            "#instalace_pythonu_na_linux",
+                            "#install-virtualenv",
+                            "#kontrola_tkinter"
+                        ],
                         "slug": "linux",
                         "solutions": [],
                         "source_file": "lessons/beginners/install/linux.md",
@@ -92,7 +153,14 @@
                         "content": {
                             "path": "install/macos.html"
                         },
+                        "ids": [
+                            "instalace_pythonu_pro_macos"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_pythonu_pro_macos",
+                            "http://brew.sh"
+                        ],
                         "slug": "macos",
                         "solutions": [],
                         "source_file": "lessons/beginners/install/macos.md",
@@ -110,7 +178,18 @@
                         "content": {
                             "path": "install/windows.html"
                         },
+                        "ids": [
+                            "instalace_pythonu_pro_windows",
+                            "starsi_windows_nebo_existujici_python"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_pythonu_pro_windows",
+                            "#starsi_windows_nebo_existujici_python",
+                            "https://www.python.org/downloads/",
+                            "naucse:static?filename=windows_32v64-bit.png",
+                            "naucse:static?filename=windows_add_python_to_path.png"
+                        ],
                         "slug": "windows",
                         "solutions": [],
                         "source_file": "lessons/beginners/install/windows.md",
@@ -142,7 +221,18 @@
                         "content": {
                             "path": "install-editor/atom.html"
                         },
+                        "ids": [
+                            "instalace_atomu",
+                            "nacvik_odsazovani",
+                            "nastaveni"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_atomu",
+                            "#nacvik_odsazovani",
+                            "#nastaveni",
+                            "https://atom.io"
+                        ],
                         "slug": "atom",
                         "solutions": [],
                         "source_file": "lessons/beginners/install-editor/atom.md",
@@ -160,7 +250,21 @@
                         "content": {
                             "path": "install-editor/gedit.html"
                         },
+                        "ids": [
+                            "instalace_geditu",
+                            "nacvik_odsazovani",
+                            "nastaveni"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_geditu",
+                            "#nacvik_odsazovani",
+                            "#nastaveni",
+                            "https://wiki.gnome.org/Apps/Gedit",
+                            "naucse:static?filename=gedit_indent.png",
+                            "naucse:static?filename=gedit_linenums.png",
+                            "naucse:static?filename=gedit_prefs.png"
+                        ],
                         "slug": "gedit",
                         "solutions": [],
                         "source_file": "lessons/beginners/install-editor/gedit.md",
@@ -178,7 +282,28 @@
                         "content": {
                             "path": "install-editor/index.html"
                         },
+                        "ids": [
+                            "co_programatorsky_editor_umi",
+                            "ide",
+                            "instalace_editoru",
+                            "volba_a_nastaveni_editoru"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#co_programatorsky_editor_umi",
+                            "#ide",
+                            "#instalace_editoru",
+                            "#volba_a_nastaveni_editoru",
+                            "https://eclipse.org/",
+                            "https://www.jetbrains.com/pycharm/",
+                            "https://www.kdevelop.org/",
+                            "naucse:page?lesson=beginners/install-editor&page=atom",
+                            "naucse:page?lesson=beginners/install-editor&page=gedit",
+                            "naucse:page?lesson=beginners/install-editor&page=kate",
+                            "naucse:page?lesson=beginners/install-editor&page=notepad-plus-plus",
+                            "naucse:page?lesson=beginners/install-editor&page=others",
+                            "naucse:page?lesson=beginners/install-editor&page=vscode"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/beginners/install-editor/index.md",
@@ -195,7 +320,18 @@
                         "content": {
                             "path": "install-editor/kate.html"
                         },
+                        "ids": [
+                            "instalace_kate",
+                            "nacvik_odsazovani",
+                            "nastaveni"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_kate",
+                            "#nacvik_odsazovani",
+                            "#nastaveni",
+                            "https://kate-editor.org/get-it/"
+                        ],
                         "slug": "kate",
                         "solutions": [],
                         "source_file": "lessons/beginners/install-editor/kate.md",
@@ -213,7 +349,18 @@
                         "content": {
                             "path": "install-editor/notepad-plus-plus.html"
                         },
+                        "ids": [
+                            "instalace_notepadu",
+                            "nacvik_odsazovani",
+                            "nastaveni"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_notepadu",
+                            "#nacvik_odsazovani",
+                            "#nastaveni",
+                            "https://notepad-plus-plus.org/"
+                        ],
                         "slug": "notepad-plus-plus",
                         "solutions": [],
                         "source_file": "lessons/beginners/install-editor/notepad-plus-plus.md",
@@ -231,7 +378,26 @@
                         "content": {
                             "path": "install-editor/others.html"
                         },
+                        "ids": [
+                            "cislovani_radku",
+                            "instalace_editoru",
+                            "kontrola_stylu_zdrojoveho_kodu",
+                            "nacvik_odsazovani",
+                            "nastaveni",
+                            "obarvovani",
+                            "odsazovani"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#cislovani_radku",
+                            "#instalace_editoru",
+                            "#kontrola_stylu_zdrojoveho_kodu",
+                            "#nacvik_odsazovani",
+                            "#nastaveni",
+                            "#obarvovani",
+                            "#odsazovani",
+                            "https://www.python.org/dev/peps/pep-0008/"
+                        ],
                         "slug": "others",
                         "solutions": [],
                         "source_file": "lessons/beginners/install-editor/others.md",
@@ -249,7 +415,24 @@
                         "content": {
                             "path": "install-editor/vscode.html"
                         },
+                        "ids": [
+                            "instalace_instalace_visual_studio_code",
+                            "nacvik_odsazovani",
+                            "nastaveni",
+                            "odesilani_telemetrickych_dat",
+                            "stazeni_a_instalace"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#instalace_instalace_visual_studio_code",
+                            "#nacvik_odsazovani",
+                            "#nastaveni",
+                            "#odesilani_telemetrickych_dat",
+                            "#stazeni_a_instalace",
+                            "https://code.visualstudio.com/",
+                            "https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting",
+                            "https://privacy.microsoft.com/en-us/privacystatement"
+                        ],
                         "slug": "vscode",
                         "solutions": [],
                         "source_file": "lessons/beginners/install-editor/vscode.md",
@@ -284,7 +467,24 @@
                         "content": {
                             "path": "venv-setup/index.html"
                         },
+                        "ids": [
+                            "adresar_pro_kazdou_lekci",
+                            "aktivace_virtualniho_prostredi",
+                            "nastaveni_prostredi",
+                            "prepnuti",
+                            "priprava_adresare",
+                            "virtualni_prostredi"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#adresar_pro_kazdou_lekci",
+                            "#aktivace_virtualniho_prostredi",
+                            "#nastaveni_prostredi",
+                            "#prepnuti",
+                            "#priprava_adresare",
+                            "#virtualni_prostredi",
+                            "naucse:static?filename=dirs-00.png"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/beginners/venv-setup/index.md",
@@ -318,7 +518,23 @@
                         "content": {
                             "path": "bool/index.html"
                         },
+                        "ids": [
+                            "logika",
+                            "porovnavani_veci",
+                            "pravdivostni_hodnoty",
+                            "pritomnost",
+                            "shrnuti",
+                            "solution-0"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#logika",
+                            "#porovnavani_veci",
+                            "#pravdivostni_hodnoty",
+                            "#pritomnost",
+                            "#shrnuti",
+                            "naucse:solution?solution=0"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -346,7 +562,19 @@
                         "content": {
                             "path": "class/index.html"
                         },
+                        "ids": [
+                            "atributy",
+                            "parametr_codeselfcode",
+                            "shrnuti",
+                            "tridy"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#atributy",
+                            "#parametr_codeselfcode",
+                            "#shrnuti",
+                            "#tridy"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/fast-track/class/index.md",
@@ -373,7 +601,15 @@
                         "content": {
                             "path": "conversion/index.html"
                         },
+                        "ids": [
+                            "prevadeni_typu",
+                            "solution-0"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#prevadeni_typu",
+                            "naucse:solution?solution=0"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -404,11 +640,33 @@
                         "content": {
                             "path": "def/index.html"
                         },
+                        "ids": [
+                            "parametry",
+                            "shrnuti",
+                            "solution-0",
+                            "solution-1",
+                            "solution-2",
+                            "solution-3",
+                            "solution-4",
+                            "vlastni_funkce",
+                            "vraceni"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#parametry",
+                            "#shrnuti",
+                            "#vlastni_funkce",
+                            "#vraceni",
+                            "naucse:solution?solution=0",
+                            "naucse:solution?solution=1",
+                            "naucse:solution?solution=2",
+                            "naucse:solution?solution=3",
+                            "naucse:solution?solution=4"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
-                                "content": "<p>Každé volání spustí tělo funkce znovu.</p>\n<div class=\"highlight\"><pre><span></span><span class=\"gp gp-VirtualEnv\">(venv)</span> <span class=\"gp\">$ </span>python python_intro.py\n<span class=\"go\">Ahoj!</span>\n<span class=\"go\">Jak se máš?</span>\n<span class=\"go\">Ahoj!</span>\n<span class=\"go\">Jak se máš?</span>\n<span class=\"go\">Ahoj!</span>\n<span class=\"go\">Jak se máš?</span>\n</pre></div>"
+                                "content": "<p>Každé volání spustí tělo funkce znovu.</p>\n<div class=\"highlight\"><pre><span></span><span class=\"gp gp-VirtualEnv\">(venv)</span> <span class=\"gp\">$ </span>python<span class=\"w\"> </span>python_intro.py\n<span class=\"go\">Ahoj!</span>\n<span class=\"go\">Jak se máš?</span>\n<span class=\"go\">Ahoj!</span>\n<span class=\"go\">Jak se máš?</span>\n<span class=\"go\">Ahoj!</span>\n<span class=\"go\">Jak se máš?</span>\n</pre></div>"
                             },
                             {
                                 "content": "<div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;&lt;stdin&gt;&quot;</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name &#39;pozdrav&#39; is not defined</span>\n</pre></div><p>Python si postěžuje na <code>NameError</code> – nezná nic jménem <code>pozdrav</code>.</p>\n<p>Python totiž program čte odzhora dolů.\nAž příkazem <code>def</code> se „naučí\" jak zdravit.\nPředtím, než se k příkazu <code>def</code> dostane, funkce neexistuje.</p>"
@@ -447,7 +705,17 @@
                         "content": {
                             "path": "dict/index.html"
                         },
+                        "ids": [
+                            "meneni_slovniku",
+                            "shrnuti",
+                            "slovniky"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#meneni_slovniku",
+                            "#shrnuti",
+                            "#slovniky"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/fast-track/dict/index.md",
@@ -474,7 +742,17 @@
                         "content": {
                             "path": "for/index.html"
                         },
+                        "ids": [
+                            "cykly",
+                            "opakuj_varnvar-krat",
+                            "shrnuti"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#cykly",
+                            "#opakuj_varnvar-krat",
+                            "#shrnuti"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/fast-track/for/index.md",
@@ -501,7 +779,23 @@
                         "content": {
                             "path": "if/index.html"
                         },
+                        "ids": [
+                            "jinak",
+                            "kdyz_tak",
+                            "odsazovani",
+                            "podminky",
+                            "shrnuti",
+                            "vice_moznosti"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#jinak",
+                            "#kdyz_tak",
+                            "#odsazovani",
+                            "#podminky",
+                            "#shrnuti",
+                            "#vice_moznosti"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/fast-track/if/index.md",
@@ -528,7 +822,37 @@
                         "content": {
                             "path": "list/index.html"
                         },
+                        "ids": [
+                            "odstranovani",
+                            "pridavani_do_seznamu",
+                            "rezani",
+                            "rezani_retezcu",
+                            "seznamy",
+                            "shrnuti",
+                            "solution-0",
+                            "solution-1",
+                            "solution-2",
+                            "solution-3",
+                            "solution-4",
+                            "solution-5",
+                            "vybirani_prvku"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#odstranovani",
+                            "#pridavani_do_seznamu",
+                            "#rezani",
+                            "#rezani_retezcu",
+                            "#seznamy",
+                            "#shrnuti",
+                            "#vybirani_prvku",
+                            "naucse:solution?solution=0",
+                            "naucse:solution?solution=1",
+                            "naucse:solution?solution=2",
+                            "naucse:solution?solution=3",
+                            "naucse:solution?solution=4",
+                            "naucse:solution?solution=5"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -571,7 +895,35 @@
                         "content": {
                             "path": "pyglet/index.html"
                         },
+                        "ids": [
+                            "animace",
+                            "cely_program",
+                            "dalsi_udalosti",
+                            "grafika",
+                            "kliknuti_mysi",
+                            "kostra_programu",
+                            "kresleni",
+                            "obsluha_udalosti",
+                            "solution-0",
+                            "stisk_klavesy"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#animace",
+                            "#cely_program",
+                            "#dalsi_udalosti",
+                            "#grafika",
+                            "#kliknuti_mysi",
+                            "#kostra_programu",
+                            "#kresleni",
+                            "#obsluha_udalosti",
+                            "#stisk_klavesy",
+                            "https://cs.wikipedia.org/wiki/Sn%C3%ADmkov%C3%A1_frekvence",
+                            "https://pyglet.readthedocs.io/en/latest/modules/window.html#pyglet.window.Window.on_activate",
+                            "https://pyglet.readthedocs.io/en/latest/modules/window_key.html#key-constants",
+                            "https://pyglet.readthedocs.io/en/latest/programming_guide/keyboard.html#motion-events",
+                            "naucse:solution?solution=0"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -599,7 +951,19 @@
                         "content": {
                             "path": "random/index.html"
                         },
+                        "ids": [
+                            "nahoda",
+                            "nahodny_vyber",
+                            "shrnuti",
+                            "solution-0"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#nahoda",
+                            "#nahodny_vyber",
+                            "#shrnuti",
+                            "naucse:solution?solution=0"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -630,7 +994,17 @@
                         "content": {
                             "path": "repl/index.html"
                         },
+                        "ids": [
+                            "chyby",
+                            "interaktivni_rezim_pythonu",
+                            "shrnuti"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#chyby",
+                            "#interaktivni_rezim_pythonu",
+                            "#shrnuti"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/fast-track/repl/index.md",
@@ -657,7 +1031,22 @@
                         "content": {
                             "path": "script/index.html"
                         },
+                        "ids": [
+                            "komentare",
+                            "shrnuti",
+                            "uloz_to",
+                            "vstup",
+                            "vystup"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#komentare",
+                            "#shrnuti",
+                            "#uloz_to",
+                            "#vstup",
+                            "#vystup",
+                            "naucse:page?lesson=beginners/install-editor"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/fast-track/script/index.md",
@@ -684,7 +1073,28 @@
                         "content": {
                             "path": "str/index.html"
                         },
+                        "ids": [
+                            "funkce_a_metody",
+                            "retezce",
+                            "shrnuti",
+                            "skladani_vyrazu",
+                            "solution-0",
+                            "solution-1",
+                            "solution-2",
+                            "uvozovani"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#funkce_a_metody",
+                            "#retezce",
+                            "#shrnuti",
+                            "#skladani_vyrazu",
+                            "#uvozovani",
+                            "naucse:solution?solution=0",
+                            "naucse:solution?solution=1",
+                            "naucse:solution?solution=2",
+                            "naucse:static?filename=quote-comic.svg"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -722,7 +1132,17 @@
                         "content": {
                             "path": "tuple/index.html"
                         },
+                        "ids": [
+                            "shrnuti",
+                            "varnvar-tice",
+                            "zip"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#shrnuti",
+                            "#varnvar-tice",
+                            "#zip"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/fast-track/tuple/index.md",
@@ -749,7 +1169,21 @@
                         "content": {
                             "path": "variables/index.html"
                         },
+                        "ids": [
+                            "jmena_promennych",
+                            "promenne",
+                            "shrnuti",
+                            "solution-0",
+                            "solution-1"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#jmena_promennych",
+                            "#promenne",
+                            "#shrnuti",
+                            "naucse:solution?solution=0",
+                            "naucse:solution?solution=1"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -780,7 +1214,52 @@
                         "content": {
                             "path": "drawing/index.html"
                         },
+                        "ids": [
+                            "housenka",
+                            "jak_vybrat_ctverecky",
+                            "krmeni",
+                            "logicke_a_zobrazovaci_souradnice",
+                            "nacitani_kousku_hada",
+                            "nakresli_mi_hada",
+                            "profi_software",
+                            "reprezentace_hada",
+                            "sazeni_ctverecku",
+                            "sazeni_hada",
+                            "solution-0",
+                            "solution-1",
+                            "solution-2",
+                            "solution-3"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#housenka",
+                            "#jak_vybrat_ctverecky",
+                            "#krmeni",
+                            "#logicke_a_zobrazovaci_souradnice",
+                            "#nacitani_kousku_hada",
+                            "#nakresli_mi_hada",
+                            "#profi_software",
+                            "#reprezentace_hada",
+                            "#sazeni_ctverecku",
+                            "#sazeni_hada",
+                            "naucse:page?lesson=snake/logic",
+                            "naucse:page?lesson=snake/tile-selection",
+                            "naucse:solution?solution=0",
+                            "naucse:solution?solution=1",
+                            "naucse:solution?solution=2",
+                            "naucse:solution?solution=3",
+                            "naucse:static?filename=apple.png",
+                            "naucse:static?filename=caterpillar.png",
+                            "naucse:static?filename=coords-blocks.svg",
+                            "naucse:static?filename=coords-px.svg",
+                            "naucse:static?filename=coords.svg",
+                            "naucse:static?filename=green.png",
+                            "naucse:static?filename=screenshot-dir.png",
+                            "naucse:static?filename=snake-tiles.png",
+                            "naucse:static?filename=snake-tiles.zip",
+                            "naucse:static?filename=snake-tiles/end-end.png",
+                            "naucse:static?filename=tile-selection.svg"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -962,7 +1441,17 @@
                         "content": {
                             "path": "handling/index.html"
                         },
+                        "ids": [
+                            "fronta_pokynu",
+                            "vylepseni_ovladani_hada",
+                            "zpatky_ni_krok"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#fronta_pokynu",
+                            "#vylepseni_ovladani_hada",
+                            "#zpatky_ni_krok"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/snake/handling/index.md",
@@ -986,7 +1475,53 @@
                         "content": {
                             "path": "logic/index.html"
                         },
+                        "ids": [
+                            "a_to_je_vse",
+                            "co_dal",
+                            "konec",
+                            "krmeni",
+                            "logika_hry",
+                            "nove_jidlo",
+                            "ovladani",
+                            "pauza",
+                            "rozhybejme_hada",
+                            "solution-0",
+                            "solution-1",
+                            "solution-2",
+                            "solution-3",
+                            "solution-4",
+                            "solution-5",
+                            "solution-6",
+                            "solution-7",
+                            "solution-8",
+                            "zatim_dobry_ted_ale_narazime"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#a_to_je_vse",
+                            "#co_dal",
+                            "#konec",
+                            "#krmeni",
+                            "#logika_hry",
+                            "#nove_jidlo",
+                            "#ovladani",
+                            "#pauza",
+                            "#rozhybejme_hada",
+                            "#zatim_dobry_ted_ale_narazime",
+                            "https://pyglet.readthedocs.io/en/pyglet-1.3-maintenance/modules/window_key.html#key-constants",
+                            "naucse:page?lesson=snake/handling",
+                            "naucse:page?lesson=snake/toroid",
+                            "naucse:solution?solution=0",
+                            "naucse:solution?solution=1",
+                            "naucse:solution?solution=2",
+                            "naucse:solution?solution=3",
+                            "naucse:solution?solution=4",
+                            "naucse:solution?solution=5",
+                            "naucse:solution?solution=6",
+                            "naucse:solution?solution=7",
+                            "naucse:solution?solution=8",
+                            "naucse:static?filename=coord-vectors.svg"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -1042,7 +1577,29 @@
                         "content": {
                             "path": "tile-selection/index.html"
                         },
+                        "ids": [
+                            "jednodussi_podproblemy",
+                            "projit_vsechny_souradnice",
+                            "tohle_neni_evangelium",
+                            "vybirani_kousku_hada",
+                            "zjistit_smer"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#jednodussi_podproblemy",
+                            "#projit_vsechny_souradnice",
+                            "#tohle_neni_evangelium",
+                            "#vybirani_kousku_hada",
+                            "#zjistit_smer",
+                            "naucse:static?filename=lettered.svg",
+                            "naucse:static?filename=snake-tiles/bottom-right.png",
+                            "naucse:static?filename=snake-tiles/bottom-top.png",
+                            "naucse:static?filename=snake-tiles/end-right.png",
+                            "naucse:static?filename=snake-tiles/left-end.png",
+                            "naucse:static?filename=snake-tiles/left-right.png",
+                            "naucse:static?filename=snake-tiles/left-top.png",
+                            "naucse:static?filename=tile-selection.svg"
+                        ],
                         "slug": "index",
                         "solutions": [],
                         "source_file": "lessons/snake/tile-selection/index.md",
@@ -1178,7 +1735,19 @@
                         "content": {
                             "path": "toroid/index.html"
                         },
+                        "ids": [
+                            "nekonecna_klec",
+                            "solution-0",
+                            "zbytkove_reseni"
+                        ],
                         "license": "cc-by-sa-40",
+                        "links": [
+                            "#nekonecna_klec",
+                            "#zbytkove_reseni",
+                            "https://docs.python.org/3/reference/expressions.html#binary-arithmetic-operations",
+                            "https://en.wikipedia.org/wiki/Torus#Topology",
+                            "naucse:solution?solution=0"
+                        ],
                         "slug": "index",
                         "solutions": [
                             {
@@ -1199,7 +1768,7 @@
             }
         },
         "long_description": "<p>Chceš se naučit programovat, ale nevíš kde začít?\nMáme tu workshop právě pro tebe!</p>\n<p>Pod vedením instruktora vytvoříš variantu klasické videohry Had,\nkterou můžeš znát třeba ze starších mobilů Nokia.\nNa vlastní kůži si vyzkoušíš jak se píše kód,\njaké jsou základní programovací koncepty, a jaké to je,\nkdyž počítač přestane trucovat a začne poslouchat tvoje příkazy.</p>\n<p>(Přijde-li ti projekt málo praktický, nezoufej! Spíš než o hru jde\no základní programovací principy, které dál využiješ např. při tvorbě\nwebových aplikací, analýze dat, strojovém učení,\nprogramování robotů nebo návrhu systémových nástrojů.)</p>\n<p>Workshop je pro úplné začátečníky.\nNení potřeba vědět nic o programování, stačí mít počítač a umět ho používat\n(např. otevřít/uložit soubor, nainstalovat program).</p>\n<p>Workshop je v češtině a zdarma.\nKapacita je ale omezená a na workshop je nutná registrace přes stránky\n<a href=\"https://pyladies.cz/brno\">pyladies.cz</a>.</p>\n<p>Zalíbí-li se ti tahle ochutnávka, je možnost pokračovat jedním\nz jarních začátečnických kurzů PyLadies, které začnou nedlouho\npo workshopu.</p>",
-        "place": "Red Hat, budova C, Purkyňova 665/115, Brno",
+        "place": "Red Hat, budova B, Purkyňova 665/115, Brno",
         "sessions": [
             {
                 "materials": [
@@ -1230,7 +1799,7 @@
                 "title": "Příprava"
             },
             {
-                "date": "2022-08-20",
+                "date": "2024-02-17",
                 "materials": [
                     {
                         "external_url": "https://docs.google.com/presentation/d/1pM5t3B4Qn-xVsWksDycYvHG5pxJbzmOZwLFPd9lDmGo/edit",
@@ -1323,7 +1892,7 @@
                 "title": "Úvod do Pythonu"
             },
             {
-                "date": "2022-08-20",
+                "date": "2024-02-17",
                 "materials": [
                     {
                         "lesson_slug": "fast-track/pyglet",
