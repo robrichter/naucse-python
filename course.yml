@@ -41,8 +41,6 @@ plan:
   slug: preparation
   serial: 0
   materials:
-  - lesson: beginners/cmdline
-    title: Příkazová řádka
   - lesson: beginners/install
   - lesson: beginners/venv-setup
   - lesson: beginners/install-editor
