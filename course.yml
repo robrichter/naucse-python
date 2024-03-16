@@ -1,7 +1,7 @@
-title: Hadí workshop pro PyLadies
-subtitle: Brno
-place: Red Hat, budova B, Purkyňova 665/115, Brno
-time: 8:00 až 18:00
+title: Hadí workshop
+subtitle: Hradec Králove
+place: Univerzita Hradec Králové, Hradecká 1285, Hradec Králové
+time: 8:30 až 18:00
 timezone: Europe/Prague
 description: Hravá ochutnávka programování
 long_description: |
@@ -26,7 +26,7 @@ long_description: |
 
     Workshop je v češtině a zdarma.
     Kapacita je ale omezená a na workshop je nutná registrace přes stránky
-    [pyladies.cz](https://pyladies.cz/brno).
+    [pyladies.cz](https://pyladies.cz/hradec).
 
     Zalíbí-li se ti tahle ochutnávka, je možnost pokračovat jedním
     z jarních začátečnických kurzů PyLadies, které začnou nedlouho
@@ -46,9 +46,9 @@ plan:
   - lesson: beginners/install-editor
 - title: Úvod do Pythonu
   slug: intro
-  date: 2024-02-17
+  date: 2024-04-13
   time:
-    start: '8:00'
+    start: '8:30'
     end: '13:00'
   materials:
   - title: Úvod
@@ -72,7 +72,7 @@ plan:
   - lesson: fast-track/class
 - title: Had
   slug: workshop
-  date: 2024-02-17
+  date: 2024-04-17
   time:
     start: '13:30'
     end: '18:00'
