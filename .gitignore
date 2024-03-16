@@ -1,4 +1,6 @@
 *.pyc
+.venv
+.idea
 
 # LaTeX
 *.aux
@@ -12,3 +14,4 @@ venv
 _build
 .arca
 .pytest_cache
+.cache
