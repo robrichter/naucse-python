@@ -10,6 +10,80 @@
             "url": "https://github.com/robrichter/naucse-python"
         },
         "lessons": {
+            "beginners/cmdline": {
+                "pages": {
+                    "index": {
+                        "attribution": [
+                            "Pro PyLadies Brno napsal Petr Viktorin, 2014-2017.",
+                            "Založeno na tutoriálu <a href=\"https://tutorial.djangogirls.org/en/intro_to_command_line/\">Django Girls</a>."
+                        ],
+                        "content": {
+                            "path": "cmdline/index.html"
+                        },
+                        "ids": [
+                            "aktualni_adresar",
+                            "co_v_tom_adresari_je",
+                            "konec",
+                            "kopirovani_z_prikazove_radky",
+                            "o_uroven_nahoru",
+                            "otevreni_vprohlizece_souboru",
+                            "pozorovani_zmen",
+                            "prehled",
+                            "prikazova_radka",
+                            "prvni_prikaz",
+                            "vgrafickem_hledatku",
+                            "vkladani_do_prikazove_radky",
+                            "vytvoreni_adresare",
+                            "zmena_aktualniho_adresare"
+                        ],
+                        "license": "cc-by-sa-40",
+                        "links": [
+                            "#aktualni_adresar",
+                            "#co_v_tom_adresari_je",
+                            "#konec",
+                            "#kopirovani_z_prikazove_radky",
+                            "#o_uroven_nahoru",
+                            "#otevreni_vprohlizece_souboru",
+                            "#pozorovani_zmen",
+                            "#prehled",
+                            "#prikazova_radka",
+                            "#prvni_prikaz",
+                            "#vgrafickem_hledatku",
+                            "#vkladani_do_prikazove_radky",
+                            "#vytvoreni_adresare",
+                            "#zmena_aktualniho_adresare",
+                            "naucse:static?filename=linux-file-browser.png",
+                            "naucse:static?filename=macos-file-browser.png",
+                            "naucse:static?filename=windows-cmd-properties.png",
+                            "naucse:static?filename=windows-file-browser.png"
+                        ],
+                        "slug": "index",
+                        "solutions": [],
+                        "source_file": "lessons/beginners/cmdline/index.md",
+                        "title": "Příkazová řádka",
+                        "vars": {
+                            "coach-present": true,
+                            "user-gender": "f"
+                        }
+                    }
+                },
+                "source_file": "lessons/beginners/cmdline/info.yml",
+                "static_files": {
+                    "linux-file-browser.png": {
+                        "path": "cmdline/linux-file-browser.png"
+                    },
+                    "macos-file-browser.png": {
+                        "path": "cmdline/macos-file-browser.png"
+                    },
+                    "windows-cmd-properties.png": {
+                        "path": "cmdline/windows-cmd-properties.png"
+                    },
+                    "windows-file-browser.png": {
+                        "path": "cmdline/windows-file-browser.png"
+                    }
+                },
+                "title": "Příkazová řádka"
+            },
             "beginners/install": {
                 "pages": {
                     "index": {
@@ -1698,6 +1772,11 @@
         "sessions": [
             {
                 "materials": [
+                    {
+                        "lesson_slug": "beginners/cmdline",
+                        "title": "Příkazová řádka",
+                        "type": "lesson"
+                    },
                     {
                         "lesson_slug": "beginners/install",
                         "title": "Instalace Pythonu",
