@@ -284,24 +284,14 @@
                         },
                         "ids": [
                             "co_programatorsky_editor_umi",
-                            "ide",
                             "instalace_editoru",
                             "volba_a_nastaveni_editoru"
                         ],
                         "license": "cc-by-sa-40",
                         "links": [
                             "#co_programatorsky_editor_umi",
-                            "#ide",
                             "#instalace_editoru",
                             "#volba_a_nastaveni_editoru",
-                            "https://eclipse.org/",
-                            "https://www.jetbrains.com/pycharm/",
-                            "https://www.kdevelop.org/",
-                            "naucse:page?lesson=beginners/install-editor&page=atom",
-                            "naucse:page?lesson=beginners/install-editor&page=gedit",
-                            "naucse:page?lesson=beginners/install-editor&page=kate",
-                            "naucse:page?lesson=beginners/install-editor&page=notepad-plus-plus",
-                            "naucse:page?lesson=beginners/install-editor&page=others",
                             "naucse:page?lesson=beginners/install-editor&page=vscode"
                         ],
                         "slug": "index",
