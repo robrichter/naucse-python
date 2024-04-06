@@ -69,8 +69,8 @@ Obarvování
 
 ## Volba a nastavení editoru
 
-Vybereš-li editor, klikni na jeho jméno a dostaneš se na instrukce ke stažení
-a nastavení.
+Pro náš workshop budeme používat editor Visual Studio Code. Klikni na jeho jméno a dostaneš se na
+instrukce ke stažení a nastavení.
 (Na tuhle stránku se pak už nemusíš vracet.)
 
 * [Visual Studio Code]({{ subpage_url('vscode') }}) – doporučený editor pro
@@ -83,47 +83,4 @@ a nastavení.
   které ze začátku trochu překážejí.
   Neboj se editor přizpůsobit nebo něco vypnout.
 
-Na Linuxu budeš mít pravděpodobně už nainstalovaný Gedit nebo Kate.
-Zkus se podívat do systémové nabídky, jestli jeden z nich máš (případně je
-spusť z příkazové řádky jako `gedit`, resp. `kate`).
-Pokud ano, klikni na odkaz níže a editor si nastav.
-Nemáš-li ani jeden, vyber Visual Studio Code (viz výše).
-
-* [Gedit]({{ subpage_url('gedit') }}) – bývá na systémech s prostředím GNOME.
-* [Kate]({{ subpage_url('kate') }}) – bývá na systémech s prostředím KDE.
-
-Existují i jiné editory, na které máme návody
-nebo jsme je doporučovali ve starších verzích těchto materiálů.
-Pokud se jeden z nich rozhodneš použít, neuděláš chybu:
-
-* [Atom]({{ subpage_url('atom') }}) – kvalitní editor s jednoduchým designem
-* [Notepad++]({{ subpage_url('notepad-plus-plus') }}) – nenáročný editor
-  pro Windows vhodný pro pomalejší počítače
-
-Máš-li už svůj oblíbený editor – Vim, Emacs, Geany, apod., použij ten:
-
-* [Ostatní]({{ subpage_url('others') }}) – máš-li jiný editor, zkontroluj
-  si že je správně nastaven.
-
-
-### IDE
-
-Existují i složitější a mocnější editory, takzvané *IDE* (angl. *Integrated
-Development Environment*, integrované vývojové prostředí),
-třeba [PyCharm], [Eclipse] nebo [KDevelop].
-Umí spoustu pokročilých funkcí, které programátorům pomáhají:
-našeptávání, přejmenovávání, spouštění programů, správu virtuálních prostředí
-a podobně.
-Na začátek ale nejsou moc vhodné.
-
-Chceš-li takový editor přesto použít, měl{{a}} bys ho už poměrně dobře znát:
-vědět, co za tebe dělá editor a jak to spravit, až něco udělá špatně.
-
-Koučové většinou znají jen jeden editor – ten, který používají –
-takže nemusí být schopní s pokročilým IDE rychle pomoct.
-
-
-[PyCharm]: https://www.jetbrains.com/pycharm/
-[Eclipse]: https://eclipse.org/
-[KDevelop]: https://www.kdevelop.org/
-
+  
